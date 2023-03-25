@@ -1,71 +1,90 @@
-.nav{
-    height: 5rem;
-    width: 100vw;
-}
-.logged_in-navbar{
-    
-    .active-status{
-        color: rgb(0, 255, 0);
-        font-size: .5em;
-        margin-right: 5%;
-    }
-    
-    .nav-tabs{
-        margin-left: 68%;
+.home-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
 
-    }
+  .navbar {
+    position: relative;
+    height: 80px;
+    width: 100%;
+    transition: 0.2s ease;
+    box-shadow: 14px;
 
-    .nav-profile_picture{
-        width: 25%;
-        height: 60%;
-        border-radius: 50rem;
-    }
+    .nav {
+      margin: 0;
+      padding: 0;
+      float: right;
+      margin-right: 5%;
+      cursor: pointer;
 
-    .nav-item{
-        padding-top: 4%;
-        
-    }
+      .item {
+        list-style: none;
+        display: inline-block;
+        font-size: 16px;
+        padding: 5px;
+        font-weight: 300;
+        line-height: 80px;
+        margin-right: 20px;
+        transition: 0.5s ease;
 
-    .dropdown-toggle{
-        width: 100%;
-    }
-
-    .dropdown-menu{
-        width: 10%;
-    }
-}
-
-.logged_out-navbar{
-    .nav-tabs{
-        margin-left: 72%;
-        padding-top: 1%;
-        font-size: 1.3rem;
-    }
-}
-
-.logged_in-navbar, .logged_out-navbar{
-    background-color: rgb(33,37,41);
-    padding: 1%;
-    padding-bottom: 0;
-    font-size: 1rem;
-    display: flex;
-    flex-direction: row;
-    
-    
-    .logo{
-        width: 5%;
-        object-fit: contain;
-    }
-    .logo:hover{
-        cursor: pointer
-    }
-
-    .dropdown-menu{
-        background-color: rgb(33,37,41);
-        border-radius: .4rem;
-
-    }
-        a{
-            color: white;
+        &:hover {
+          color:#E40606;
         }
+
+        .sign-up {
+          display: inline-block;
+          background-color: #E40606;
+          border: none;
+          color:#ffffff;
+          height: 40px;
+          line-height: 30px;
+          padding: 5px;
+          border-radius: 4px;
+          outline: 0;
+          transition: 0.5s ease;
+
+          &:hover {
+            border-color: #E40606;
+            color:#E40606;
+          }
+        }
+
+        .login {
+          display: inline-block;
+          background-color: #ffffff;
+          height: 40px;
+          width: 80px;
+          line-height: 30px;
+          padding: 5px;
+          border-radius: 4px;
+          transition: 0.5s ease;
+
+          &:hover {
+            border-color: #E40606;
+            color:#E40606;
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+
+    .logo {
+      float: left;
+      margin-top: 5px;
+      margin-left: 5%;
+      width: 50px;
+      height: 50px;
+      background-color: #E40606;
+      transition: 0.5s ease;
+
+      img {
+        display: none;
+      }
+    }
+  }
 }

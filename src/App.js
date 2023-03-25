@@ -1,5 +1,6 @@
 import Home from './Components/Home/Home'
 import StoryBoard from './Components/StoryBoard/StoryBoard'
+import Canva from './Components/StoryBoard/Canva'
 import Login from './Components/Members/Login';
 import Signup from './Components/Members/Signup';
 
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/storyboard" element={<StoryBoard/>} />
+            <Route path="/storyboard/canva" element={<Canva/>} />
             <Route path="/members/signup" element={<Signup/>} />
             <Route path="/members/login" element={<Login/>} />
           </Routes>

@@ -1,57 +1,79 @@
-.nav {
-  height: 5rem;
-  width: 100vw;
-}
-
-.logged_in-navbar .active-status {
-  color: rgb(0, 255, 0);
-  font-size: 0.5em;
-  margin-right: 5%;
-}
-.logged_in-navbar .nav-tabs {
-  margin-left: 68%;
-}
-.logged_in-navbar .nav-profile_picture {
-  width: 25%;
-  height: 60%;
-  border-radius: 50rem;
-}
-.logged_in-navbar .nav-item {
-  padding-top: 4%;
-}
-.logged_in-navbar .dropdown-toggle {
+.home-header {
+  position: absolute;
+  top: 0;
   width: 100%;
+  z-index: 1001;
 }
-.logged_in-navbar .dropdown-menu {
-  width: 10%;
+.home-header .navbar {
+  position: relative;
+  height: 80px;
+  width: 100%;
+  transition: 0.2s ease;
+  box-shadow: 14px;
 }
-
-.logged_out-navbar .nav-tabs {
-  margin-left: 72%;
-  padding-top: 1%;
-  font-size: 1.3rem;
-}
-
-.logged_in-navbar, .logged_out-navbar {
-  background-color: rgb(33, 37, 41);
-  padding: 1%;
-  padding-bottom: 0;
-  font-size: 1rem;
-  display: flex;
-  flex-direction: row;
-}
-.logged_in-navbar .logo, .logged_out-navbar .logo {
-  width: 5%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-.logged_in-navbar .logo:hover, .logged_out-navbar .logo:hover {
+.home-header .navbar .nav {
+  margin: 0;
+  padding: 0;
+  float: right;
+  margin-right: 5%;
   cursor: pointer;
 }
-.logged_in-navbar .dropdown-menu, .logged_out-navbar .dropdown-menu {
-  background-color: rgb(33, 37, 41);
-  border-radius: 0.4rem;
+.home-header .navbar .nav .item {
+  list-style: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 5px;
+  font-weight: 300;
+  line-height: 80px;
+  margin-right: 20px;
+  transition: 0.5s ease;
 }
-.logged_in-navbar a, .logged_out-navbar a {
-  color: white;
+.home-header .navbar .nav .item:hover {
+  color: #E40606;
+}
+.home-header .navbar .nav .item .sign-up {
+  display: inline-block;
+  background-color: #E40606;
+  border: none;
+  color: #ffffff;
+  height: 40px;
+  line-height: 30px;
+  padding: 5px;
+  border-radius: 4px;
+  outline: 0;
+  transition: 0.5s ease;
+}
+.home-header .navbar .nav .item .sign-up:hover {
+  border-color: #E40606;
+  color: #E40606;
+}
+.home-header .navbar .nav .item .login {
+  display: inline-block;
+  background-color: #ffffff;
+  height: 40px;
+  width: 80px;
+  line-height: 30px;
+  padding: 5px;
+  border-radius: 4px;
+  transition: 0.5s ease;
+}
+.home-header .navbar .nav .item .login:hover {
+  border-color: #E40606;
+  color: #E40606;
+}
+.home-header .navbar .nav .item a {
+  text-decoration: none;
+  color: inherit;
+}
+.home-header .navbar .logo {
+  float: left;
+  margin-top: 5px;
+  margin-left: 5%;
+  width: 50px;
+  height: 50px;
+  background-color: #E40606;
+  transition: 0.5s ease;
+}
+.home-header .navbar .logo img {
+  display: none;
 }/*# sourceMappingURL=globalnavbar.css.map */

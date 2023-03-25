@@ -40,7 +40,7 @@ export default function StoryBoard(){
                         <button>Create an experience</button>
                     </div>
                     <div className="templates">
-                        <h3>Choose a template</h3>
+                        <h3>Choose a template</h3><br/>
 
                         <div className="template-images">
                             <img src={Img1} alt="Template 1"/>

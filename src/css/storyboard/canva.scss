@@ -1,0 +1,39 @@
+.main-container-canva {
+    .flex-wrapper {
+        display: flex;
+        flex-direction: row;
+        // border: 5px solid black;
+
+        .sidenav{
+                top: 0;
+                left: 0;
+                width: 10%;
+                height: 100vh;
+                background-color: #f2f2f2;
+                z-index: -1;
+                padding-top: 5%;
+                border-right: 1px solid black;
+
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    li{
+                        margin-bottom: 20%;
+                        margin-right: 25%;
+                        button{
+                            border: none !important;
+                            
+                            i{
+                                font-size: 2rem;
+                            }
+                        }
+
+                    }
+                }
+        }
+
+    }
+}
+

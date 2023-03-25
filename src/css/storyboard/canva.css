@@ -1,0 +1,30 @@
+.main-container-canva .flex-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.main-container-canva .flex-wrapper .sidenav {
+  top: 0;
+  left: 0;
+  width: 10%;
+  height: 100vh;
+  background-color: #f2f2f2;
+  z-index: -1;
+  padding-top: 5%;
+  border-right: 1px solid black;
+}
+.main-container-canva .flex-wrapper .sidenav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-container-canva .flex-wrapper .sidenav ul li {
+  margin-bottom: 20%;
+  margin-right: 25%;
+}
+.main-container-canva .flex-wrapper .sidenav ul li button {
+  border: none !important;
+}
+.main-container-canva .flex-wrapper .sidenav ul li button i {
+  font-size: 2rem;
+}/*# sourceMappingURL=canva.css.map */

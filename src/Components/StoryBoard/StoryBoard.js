@@ -7,7 +7,7 @@ import Img5 from "../../imgs/5.png"
 import Img6 from "../../imgs/6.png"
 
 
-
+import { Link } from 'react-router-dom'
 
 
 import GlobalNavBar from '../GlobalNavbar'
@@ -37,7 +37,7 @@ export default function StoryBoard(){
                         <p>Don't wait any longer to bring your event to life.
                             <br />
                          Start designing now and make it unforgettable!</p>
-                        <button>Create an experience</button>
+                        <button><Link to="/storyboard/canva" style={{color: "white", textDecoration: "none"}}>Create an experience</Link></button>
                     </div>
                     <div className="templates">
                         <h3>Choose a template</h3>

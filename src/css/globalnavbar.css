@@ -1,0 +1,57 @@
+.nav {
+  height: 5rem;
+  width: 100vw;
+}
+
+.logged_in-navbar .active-status {
+  color: rgb(0, 255, 0);
+  font-size: 0.5em;
+  margin-right: 5%;
+}
+.logged_in-navbar .nav-tabs {
+  margin-left: 68%;
+}
+.logged_in-navbar .nav-profile_picture {
+  width: 25%;
+  height: 60%;
+  border-radius: 50rem;
+}
+.logged_in-navbar .nav-item {
+  padding-top: 4%;
+}
+.logged_in-navbar .dropdown-toggle {
+  width: 100%;
+}
+.logged_in-navbar .dropdown-menu {
+  width: 10%;
+}
+
+.logged_out-navbar .nav-tabs {
+  margin-left: 72%;
+  padding-top: 1%;
+  font-size: 1.3rem;
+}
+
+.logged_in-navbar, .logged_out-navbar {
+  background-color: rgb(33, 37, 41);
+  padding: 1%;
+  padding-bottom: 0;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+.logged_in-navbar .logo, .logged_out-navbar .logo {
+  width: 5%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.logged_in-navbar .logo:hover, .logged_out-navbar .logo:hover {
+  cursor: pointer;
+}
+.logged_in-navbar .dropdown-menu, .logged_out-navbar .dropdown-menu {
+  background-color: rgb(33, 37, 41);
+  border-radius: 0.4rem;
+}
+.logged_in-navbar a, .logged_out-navbar a {
+  color: white;
+}/*# sourceMappingURL=globalnavbar.css.map */

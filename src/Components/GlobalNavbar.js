@@ -1,3 +1,6 @@
+import '../css/globalnavbar.css'
+import logo from '../imgs/atz.jpg'
+
 import {Link, useNavigate} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
@@ -52,34 +55,29 @@ export default function GlobalNavbar() {
   return (
     <div className="nav">
     {logged_in ? (
-      <nav class="logged_in-navbar">
-        <img src={""} className = "logo" alt = "logo" onClick={()=> window.location.href = "/"}/>
+      <nav className="logged_in-navbar">
+        <img src={logo} className = "logo" alt = "logo" onClick={()=> window.location.href = "/"}/>
             
-            <ul class="nav nav-tabs">
+            <ul className="nav nav-tabs">
 
-                <li class="nav-item dropdown">
+                <li className="nav-item dropdown">
                   <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" to="#" role="button" aria-expanded="false">
-                    <i class="fa-solid fa-circle active-status"></i>
+                    <i className="fa-solid fa-circle active-status"></i>
                       {user ? (
                           user.name
                       ): null}
                 </Link>
-                  <ul class="dropdown-menu">
-                    <li><Link className="dropdown-item" to={'/createjob'}>Create job</Link></li>
-                    {window.location.pathname !== "/members/profile" ? (
-                      <li><Link className="dropdown-item" to={'/members/profile'}>Profile</Link></li>
-                    ) : null
-                    }
-                    <li><Link className="dropdown-item" to={'/admin'}>Admin</Link></li>
-                    <li><Link class="dropdown-item" onClick={handlelogOut}>Logout</Link></li>
+                  <ul className="dropdown-menu">
+                   
+                    <li><Link className="dropdown-item" onClick={handlelogOut}>Logout</Link></li>
                   </ul>
                 </li>
-                    
-                <li class="nav-item"><Link className = "nav-link" to={'/jobs/search'}>Search</Link>
+               
+                    <li className="nav-item"><Link className="nav-link" to={'/about'}>About</Link>
                     </li>
-                    <li class="nav-item"><Link className="nav-link" to={'/about'}>About</Link>
-                    </li>
-                        <li class="nav-item"><Link className="nav-link" to={'/contact'}>Contact</Link>
+                    <li className="nav-item"><Link className="nav-link" to={'/contact'}>Contact</Link>
+                        </li> 
+                        <li className="nav-item"><Link className="nav-link" to={'/storyboard'}>StoryBoard</Link>
                         </li>
                 
               </ul>

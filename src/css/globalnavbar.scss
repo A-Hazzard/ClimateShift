@@ -1,0 +1,71 @@
+.nav{
+    height: 5rem;
+    width: 100vw;
+}
+.logged_in-navbar{
+    
+    .active-status{
+        color: rgb(0, 255, 0);
+        font-size: .5em;
+        margin-right: 5%;
+    }
+    
+    .nav-tabs{
+        margin-left: 68%;
+
+    }
+
+    .nav-profile_picture{
+        width: 25%;
+        height: 60%;
+        border-radius: 50rem;
+    }
+
+    .nav-item{
+        padding-top: 4%;
+        
+    }
+
+    .dropdown-toggle{
+        width: 100%;
+    }
+
+    .dropdown-menu{
+        width: 10%;
+    }
+}
+
+.logged_out-navbar{
+    .nav-tabs{
+        margin-left: 72%;
+        padding-top: 1%;
+        font-size: 1.3rem;
+    }
+}
+
+.logged_in-navbar, .logged_out-navbar{
+    background-color: rgb(33,37,41);
+    padding: 1%;
+    padding-bottom: 0;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    
+    
+    .logo{
+        width: 5%;
+        object-fit: contain;
+    }
+    .logo:hover{
+        cursor: pointer
+    }
+
+    .dropdown-menu{
+        background-color: rgb(33,37,41);
+        border-radius: .4rem;
+
+    }
+        a{
+            color: white;
+        }
+}

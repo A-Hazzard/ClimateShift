@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Climate Shift</title>
+</head>
+<body>
+    <!--Logout Nav Bar-->
+    <header>
+        <div class="navbar">
+          <ul class="nav">
+            <li class="item">
+              <a href="#">Home</a>
+            </li>
+  
+            <li class="item">
+              <a href="#">Blog</a>
+            </li>
+  
+            <li class="item">
+              <button class = "login"><a href="#">Login</a></button>
+            </li>
+  
+            <li class="item">
+              <button class="sign-up"><a href="#">Sign Up Free</a></button>
+            </li>
+          </ul>
+  
+          <div class="logo">
+            <img src="#">
+          </div>
+        </div>
+      </header><hr>
+
+      <div class="storyboard">
+        <div class="title">
+            <h1>Free Storyboard Creator for<br/> Cultural Experiences</h1>
+        </div>
+        <div>
+            <button class = "sbutton"><a href = "#">Create Your Storyboard</a></button>
+            <h2 class = "smalltext">It's free and easy to use!</h2>
+        </div>
+        <div class="pictureright">
+            <img src = "images/bluesplash.png" class = "splash" width = "400" height = "400"></img>
+            <img src="images/maskot.png" class = "maskot" width = 250 height = 350></img>
+        </div>
+      </div>
+
+      <div class="points">
+            <div class="left">
+                <i class="fa-solid fa-circle-check"></i>
+                <h2>Drag-and-drop with templates.</h2>
+            </div>
+            <div class="middle">
+                <i class="fa-solid fa-circle-check"></i>
+                <h2>Share online to collaborate as a team <br> or download as a PDF.</h2>
+            </div>
+            <div class="right">
+                <i class="fa-solid fa-circle-check"></i>
+                <h2>Discuss your experiences with others around the globe.</h2>
+            </div>
+      </div>
+
+      <div class="view">
+            <div class="title">
+                <h1>Browse customizable storyboard <Br> templates</h1>
+                <h2>Start with a pre-made template to make creating your storyboard simple. <br> Simply replace the stock images and shot specifics with your own <br> unique concepts and data, then collaborate with your team to bring <br> your concepts to life.</h2>
+                <button class = "viewbutton"><a href = "#">Use a Template</a></button>
+                <img src = "images/template.jpg" class = viewimg width = 350 height = 350>
+            </div>
+      </div>
+
+      <div class="forums">
+            <div class="title">
+                <h1>Discuss with other culturalists <br> in our forum.</h1>
+                <h2>Connect with culturists worldwide on our forum!<br> Engage in discussions, gain insights, and share ideas <br> on various cultural topics. Join today and be a part <br> of a vibrant community of like-minded individuals.</h2>
+                <button class = "forumbutton"><a href = "#">Join our Community</a></button>
+                <img src = "images/template.jpg" class = forumimg width = 350 height = 350>
+            </div>
+      </div>
+
+      <div class="info">
+            <div class="title">
+                <h1 class = "storytitle">LEARN ABOUT STORYBOARDS</h1>
+                <h1> What is a <span style = "color:#069211"> Storyboard?</span></h1>
+            </div>
+            <div class="body">
+                <p>
+                    A storyboard is a visual outline for a project that assists filmmakers <Br> and animators in determining the structure and pacing of their movie <br> as well as communicating the director's vision to the production team.
+                </p>
+            </div>
+            <button class = "infobutton"><a href = "#">Create Your Storyboard</a></button>
+            <img src = "images/template.jpg" class = info-img width = 350 height = 350>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">returns</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>credit</h4>
+                    <ul>
+                        <li><a href="#">aaron hazzard</a></li>
+                        <li><a href="#">tyler bhagwandeen</a></li>
+                        <li><a href="#">j'nubian chapman</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer>
+
+</body>
+
+
+<script>
+   $(document).ready(function() {
+      $(window).on('scroll', function() {
+        if (Math.round($(window).scrollTop()) > 100) {
+          $('.navbar').addClass('scrolled');
+        } else {
+          $('.navbar').removeClass('scrolled');
+        }
+      });
+    });
+</script>
+</html>

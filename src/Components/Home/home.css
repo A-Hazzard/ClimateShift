@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif
+  }
+  
+body {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    padding-top: 80px;
+    height: 1900px;
+  }
+  
+  header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+  }
+    
+  .navbar {
+    position: relative;
+    height: 80px;
+    width: 100%;
+    transition: 0.2s ease;
+    box-shadow: 14px;
+  }
+
+  
+  .navbar .nav {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    float: right;
+    margin-right: 5%;
+    cursor: pointer;
+  }
+
+
+  .navbar .nav .item {
+    list-style: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px;
+    font-weight: 300;
+    line-height: 80px;
+    margin-right: 20px;
+    transition: 0.5s ease;
+  }
+
+  .navbar .nav .item:hover{
+    color:#E40606;
+  }
+  
+  .navbar .nav .item .sign-up {
+    display: inline-block;
+    background-color: #E40606;
+    border: none;
+    color:#ffffff;
+    height: 40px;
+    line-height: 30px;
+    padding: 5px;
+    border-radius: 4px;
+    outline: 0;
+    transition: 0.5s ease;
+  }
+
+  .navbar .nav .item .login {
+    display: inline-block;
+    background-color: #ffffff;
+    height: 40px;
+    width: 80px;
+    line-height: 30px;
+    padding: 5px;
+    border-radius: 4px;
+    transition: 0.5s ease;
+  }
+
+  .navbar .nav .item .login:hover {
+    border-color: #E40606;
+    color:#E40606;
+  }
+  
+  .navbar .nav .item a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .navbar .logo {
+    float: left;
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 5%;
+    width: 50px;
+    height: 50px;
+    background-color: #E40606;
+    transition: 0.5s ease;
+  }
+  
+  .navbar .logo img {
+    display: none;
+  }
+  
+  .storyboard .title h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgba(0, 0, 0, 0.812)
+  }
+
+  .storyboard .title {
+     position:absolute;
+     top: 10%;
+     left: 8%;
+  }
+
+  .sbutton{
+    position: absolute;
+    top: 17%;
+    left: 8%;
+    padding: 18px;
+    width: 15%;
+    background-color: #E40606;
+    border: none;
+    border-radius: 5px;
+  }
+
+.sbutton:hover {
+    position: absolute;
+    top: 17%;
+    left: 8%;
+  }
+
+.sbutton a{
+  text-decoration: none;
+  font-size: 1.2em;
+  color: white;
+}
+
+.smalltext {
+  color:rgb(93, 93, 93);
+  font-size: 1.2em;
+  position: absolute;
+  top: 17%;
+  left: 24%;
+  font-weight: lighter;
+}
+
+.splash {
+  position:absolute;
+  top: 5%;
+  left: 60%
+}
+
+.maskot {
+  position: absolute;
+  left: 65%;
+  top: 5%;
+}
+
+.left h2 {
+  font-size: 1.2em;
+  color:rgb(0, 0, 0);
+  font-weight: lighter;
+  position: absolute;
+  top: 29.2%;
+  left: 10%
+}
+
+.left .fa-circle-check {
+  position:absolute;
+  top: 30%;
+  left: 8%;
+  font-size: 1.4em;
+  color:#069211;
+}
+
+.middle h2 {
+  font-size: 1.2em;
+  color:rgb(0, 0, 0);
+  font-weight: lighter;
+  position: absolute;
+  top: 29.2%;
+  left: 43%
+}
+
+.middle .fa-circle-check {
+  position:absolute;
+  top: 30%;
+  left: 41%;
+  font-size: 1.4em;
+  color: #069211;
+}
+
+.right h2 {
+  font-size: 1.2em;
+  color:rgb(0, 0, 0);
+  font-weight: lighter;
+  position: absolute;
+  top: 29.2%;
+  left: 75%
+}
+
+.right .fa-circle-check {
+  position:absolute;
+  top: 30%;
+  left: 73%;
+  font-size: 1.4em;
+  color: #069211;
+}
+
+.view .title h1{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:rgba(0, 0, 0, 0.812)
+}
+
+.view .title h2 {
+  font-weight: lighter;
+  font-size: 1.2em;
+}
+
+.view .title {
+  position:absolute;
+  top: 44%;
+  left: 52%;
+}
+
+.view .title .viewbutton {
+    padding: 18px;
+    width: 40%;
+    background-color: #E40606;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.view .title .viewbutton a{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+.viewimg {
+  position: absolute;
+  top: 0%;
+  left: -110%;
+}
+
+.forums .title h1{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:rgba(0, 0, 0, 0.812)
+}
+
+.forums .title {
+  position: absolute;
+  top: 72%;
+  left: 8%;
+}
+
+.forums .title h2 {
+  font-weight: lighter;
+  font-size: 1.2em;
+}
+
+.forums .title .forumbutton {
+  padding: 18px;
+  width: 53%;
+  background-color: #E40606;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.forums .title .forumbutton a{
+text-decoration: none;
+color: #ffffff;
+font-size: 1.2em;
+}
+
+.forumimg {
+  position: absolute;
+  top: 8%;
+  left: 145%;
+}
+
+.info {
+  background-color: #EBFFFA;
+  padding: 300px;
+  width: 100%;
+  position: absolute;
+  top: 110%;
+  left: 0%;
+}
+
+.info .title h1{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:rgba(0, 0, 0, 0.812)
+}
+
+.info .title {
+  position: absolute;
+  top: 10%;
+  left: 8%;
+}
+
+.storytitle {
+  font-size: 1em;
+  position: absolute;
+  top: -15%;
+  left: 0%;
+}
+
+.info .body {
+  position: absolute;
+  top: 25%;
+  left: 8%;
+  color: #323232d7;
+}
+
+.infobutton{
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  padding: 18px;
+  width: 15%;
+  background-color: #E40606;
+  border: none;
+  border-radius: 5px;
+}
+
+.infobutton:hover {
+  position: absolute;
+  top: 17%;
+  left: 8%;
+}
+
+.infobutton a{
+text-decoration: none;
+font-size: 1.2em;
+color: white;
+}
+
+.info-img {
+  position: absolute;
+  top: 17%;
+  left: 60%;
+}
+
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+    position: absolute;
+    top: 145%;
+    width: 100%;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+
+
+
+
+
+

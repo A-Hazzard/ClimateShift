@@ -1,10 +1,35 @@
-
 import {Link, useNavigate} from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 export default function GlobalNavbar() {
 
-  const navigate = useNavigate();
-  //This logout function only works when the user is logged in
+  const [logged_in, setLogged_in] = useState(false)
+  const navigate = useNavigate()
+  const [user, setUser] = useState(null)
+
+   useEffect(()=>{
+    (async function fetchUser(){
+      try{
+        const token = localStorage.getItem('token')
+
+        if(token){
+          const response = await fetch('http://localhost:3001/user',{
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
+          })
+          setLogged_in(true)
+          const data = await response.json();
+          setUser(data.user);
+          // console.log(`Found user ${data.user.name}`)
+        }
+      }catch(error){
+        console.error(error)
+      }
+    })();
+  },[])
+  
+  
+
   function handlelogOut() {
     fetch('http://localhost:3001/logout', {
       method: 'POST',
@@ -26,10 +51,9 @@ export default function GlobalNavbar() {
 
   return (
     <div className="nav">
-    {/* THIS IS COMMENTED OUT UNTIL THE LOGIN SYSTEM WORKS
     {logged_in ? (
       <nav class="logged_in-navbar">
-        <img src={Logo} className = "logo" alt = "logo" onClick={()=> window.location.href = "/"}/>
+        <img src={""} className = "logo" alt = "logo" onClick={()=> window.location.href = "/"}/>
             
             <ul class="nav nav-tabs">
 
@@ -62,9 +86,7 @@ export default function GlobalNavbar() {
         </nav>
 
         ) : (
-*/}
 
-{/* THIS NAVBAR IS DISPLAYED WHEN THE USER IS NOT LOGGED IN */}
           <nav className="logged_out-navbar">
             <ul className="nav nav-tabs">
               <li className="nav-item">
@@ -80,7 +102,7 @@ export default function GlobalNavbar() {
 
           
 
-    {/*)}*/}
+    )}
     </div>
     
    

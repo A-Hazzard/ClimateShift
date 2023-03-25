@@ -23,7 +23,7 @@ export default function Signup(){
           console.log('Found Token, user is logged in')
           setToken(storedToken)
           setLoggedIn(true)
-          navigate('/members/profile')
+          navigate('/')
         }else{
           console.log('Rendered. Token not found, user not logged in')
         }
@@ -58,7 +58,7 @@ export default function Signup(){
           console.log(data.message);
           // window.location.href = `/members/login?message=${encodeURIComponent(data.message)}`;
           localStorage.setItem('token', data.token);
-          navigate('/members/profile')
+          navigate('/')
         }
         else{
           setError(data.error);

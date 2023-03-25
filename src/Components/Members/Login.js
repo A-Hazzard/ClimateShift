@@ -20,7 +20,7 @@ export default function Login(props){
     if (storedToken) {
       setToken(storedToken);
       setLoggedIn(true);
-      navigate('/members/profile');
+      navigate('/');
     }
   }, [loggedIn, navigate]);
 
@@ -62,7 +62,7 @@ export default function Login(props){
                localStorage.setItem('token', data.token);
                 setLoggedIn(true);
                 setMessage(`${data.user.name} Logged in Successfully.`);
-                navigate('/members/profile');
+                // navigate('/members/profile');
               // window.location.href = "/";
               }
             }else setMessage(data.error)

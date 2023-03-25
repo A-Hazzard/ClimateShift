@@ -9,10 +9,11 @@ const app = express()
 const port = 3001
 
 const pool = mysql.createPool({
-  host: '10.147.20.173',
-  user: 'drgnstudio',
-  password: 'password',
-  database: 'drgn_studio',
+  host: 'sql10.freesqldatabase.com',
+  user: 'sql10608369',
+  password: 'YIbeWrfKc5',
+  database: 'sql10608369',
+  port: 3306
 })
 
 

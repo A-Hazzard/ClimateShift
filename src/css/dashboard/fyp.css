@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /*Navigation*/
+  header {
+    background-color: rgb(197, 30, 30);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    position: relative;
+    z-index: 9999;
+  }
+  #navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  header h1{
+    font-size: 20px;
+    padding: 10px 30px;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  #navbar.sticky ul li a {
+    color: #333;
+  }
+  
+  #navbar.sticky ul li a:hover {
+    color: #555;
+  }
+  
+  .search-container {
+    display: flex;
+  align-items: center;
+  margin-left: 300px;
+  }
+  
+  .search-container input[type=text] {
+    width:300px;
+    padding: 10px;
+    border: none;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 200px;
+  }
+  
+  .search-container button {
+    background-color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+  }
+  
+  .search-container button i {
+    color: black;
+  } 
+  /*Navigation End*/
+  
+.post-container{
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+.post-input{
+    width:100%;
+}
+  
+  #dropdown-icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease-out;
+  }
+  
+  #dropdown-icon.rotate {
+    transform: rotate(180deg);
+  }
+  
+  .post-info {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+  }
+  
+  .post-info.show {
+    max-height: 1000px;
+    opacity: 1;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  
+/*Tabs*/
+  .tabbuttons{
+	text-align:center;
+	padding:10px;
+}
+.tabbuttons h1{
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.tabs {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 20px
+}
+
+.tab-btn {
+  margin-right: 10px;
+  padding: 10px;
+  background-color: rgb(197, 30, 30);
+  color: white;
+  width: 120px;
+  height: 40px;
+  border: none;
+  border-radius: 200px;
+  cursor: pointer;
+}
+
+.tab-btn:focus {
+  outline: none;
+}
+
+.tab-btn.active {
+  background-color: #555;
+}
+
+.tab-content {
+  display: none;
+  margin: 20px; 
+  padding: -10px;
+  animation: fade-in 0.5s;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*Posts*/  
+  .post {
+    border: 1px solid #ccc;
+    margin: 20px auto;
+    padding: 30px;
+    width:500px;
+    border-radius: 10px;
+  }
+  
+  .post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color:#000;
+  }
+  
+  .post-header img {
+    border-radius: 50%;
+    margin-right: 10px;
+    width:80px;
+  }
+  
+  .post-info h2 {
+    margin: 0px;
+    font-size: 18px;
+  }
+  
+  .post-info p {
+    margin: 0;
+    color: #888;
+    font-size: 14px;
+  }
+  
+  .post-content {
+    margin-bottom: 20px;
+  }
+  
+  .post-content img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .post-actions button {
+    background-color: #fff;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .post-actions button:hover {
+    color: #000;
+  }
+  
+  .fa-heart {
+    color: red;
+  }
+  
+  .fa-comment {
+    color: #00f;
+  }
+  
+  .fa-share {
+    color:#ff0;
+}
+
+.fa {
+margin-right: 5px;
+}
+
+
+/* responsive design */
+@media only screen and (max-width: 768px) {
+header {
+flex-direction: column;
+align-items: flex-start;
+}
+
+nav ul li {
+display: block;
+margin-bottom: 10px;
+}
+
+.post {
+margin: 10px;
+padding: 10px;
+}}  

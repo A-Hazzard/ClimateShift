@@ -1,0 +1,346 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 90px;
+  }
+
+  /*Navigation*/
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(197, 30, 30);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .navbar.scrolled {
+    background-color: rgb(144, 144, 144);
+    transition: background-color 0.5s ease-in-out;
+  }
+  
+  .logo {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin: 0 20px;
+  }
+  
+  .search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 200px;
+  }
+  
+  .search-bar button {
+    background-color: rgb(197, 30, 30);
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin-left: 20px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+/*End Navigation*/  
+
+/*Dropdown*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+    max-width: 400px;
+    text-align: center;
+  }     
+
+  .dropdown-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .dropdown-header span {
+    flex-grow: 1;
+  }
+  
+  .dropdown-header i {
+    font-size: 14px;
+    margin-left: 8px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f9f9f9;
+    min-width: 200px;
+    max-width: 400px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    display: none;
+    text-align: center;
+  }
+  
+  .dropdown-content.open {
+    display: block;
+  }
+  .dropdown .dropdown-content .close {
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+  }
+  .dropdown-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  
+  .dropdown-content form textarea {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    resize: none;
+  }
+  
+  .dropdown-content form button {
+    margin-top: 8px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-content i {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    transition: transform 0.2s ease-in-out;
+  }
+  /*End of Dropdown*/
+  
+  
+  /*Tabs*/
+  .tabbuttons{
+	text-align:center;
+	padding:10px;
+}
+.tabbuttons h1{
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.tabs {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 20px
+}
+
+.tab-btn {
+  margin-right: 10px;
+  padding: 10px;
+  background-color: rgb(197, 30, 30);
+  color: white;
+  width: 120px;
+  height: 40px;
+  border: none;
+  border-radius: 200px;
+  cursor: pointer;
+}
+
+.tab-btn:focus {
+  outline: none;
+}
+
+.tab-btn.active {
+  background-color: #555;
+}
+
+.tab-content {
+  display: none;
+  margin: 20px; 
+  padding: -10px;
+  animation: fade-in 0.5s;
+}
+
+.tab-content.active {
+  display: flex;
+  justify-content: space-between;
+    max-width: 100%;
+}
+.tab-content.active section{
+    width: 350px;
+    height: auto;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.like-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .like-button i {
+    color: #ccc;
+    margin-right: 5px;
+  }
+  
+  .like-button.liked i {
+    color: #f00;
+  }
+  
+  .like-count {
+    margin-left: 5px;
+    color: #666;
+  }
+  
+  
+/*Tabs end*/
+
+/*Posts*/  
+.post {
+    border: 1px solid #ccc;
+    margin: 20px auto;
+    padding: 30px;
+    width:500px;
+    border-radius: 10px;
+  }
+  
+  .post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color:#000;
+  }
+  
+  .post-header img {
+    border-radius: 50%;
+    margin-right: 10px;
+    width:80px;
+  }
+  
+  .post-info h2 {
+    margin: 0px;
+    font-size: 18px;
+  }
+  
+  .post-info p {
+    margin: 0;
+    color: #888;
+    font-size: 14px;
+  }
+  
+  .post-content {
+    margin-bottom: 20px;
+  }
+  
+  .post-content img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .post-actions button {
+    background-color: #fff;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .post-actions button:hover {
+    color: #000;
+  }
+  
+  .fa-heart {
+    color: red;
+  }
+  
+  .fa-comment {
+    color: #00f;
+  }
+  
+  .fa-share {
+    color:#ff0;
+}
+
+.fa {
+margin-right: 5px;
+}
+/*Culinary*/
+
+/* responsive design */
+@media only screen and (max-width: 768px) {
+header {
+flex-direction: column;
+align-items: flex-start;
+}
+
+nav ul li {
+display: block;
+margin-bottom: 10px;
+}
+
+.post {
+margin: 10px;
+padding: 10px;
+}}  
+/*Posts end*/

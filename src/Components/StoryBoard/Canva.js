@@ -8,8 +8,14 @@ import $ from 'jquery';
 
 export default function Canva() {
 
+
+        $('#slide-nav-toggle').on('click', function() {
+          $('.slide-nav').fadeOut(1000);
+        });
     $('.home-header').css('backgroundColor', "grey")
 
+      
+    
   return (
     <div className='canva'>
         <GlobalNavbar/>
@@ -30,7 +36,7 @@ export default function Canva() {
                     </ul>
                 </aside>
 
-                <aside className='slider'>
+                <aside className='slide-nav'>
                     <h1>
                         WELCOME TO THE YOUR STORY BOARD
                     </h1>
@@ -43,14 +49,7 @@ export default function Canva() {
                         <li>Unlock your library to store your content.</li>
                         <li>Print, Share or Download as PDF, JPEG or PNG file.</li>
                         <li>Resize your design at any time for free.</li>
-                       
-
-
-
-
-
-
-
+                        <button id="slide-nav-toggle" class="slide-nav-toggle">&#9654;</button>
 
                     </ul>
                 </aside>

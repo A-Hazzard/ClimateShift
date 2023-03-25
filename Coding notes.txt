@@ -1,0 +1,38 @@
+Run the React app:
+npm run start or npm start
+
+Create a dependency file
+"npm list --depth=0 > dependencies.txt"
+
+Install neccessary files from the project [FOR PRODUCTION(DEPLOYMENT)]
+"npm install --production -- < dependencies.txt"
+
+Install neccessary files from the project [FOR DEVELOPMENT(TESTING)]
+"npm install --save-dev -- < dependencies.txt"
+
+Display all the node packages that are used in the project:
+"npm list --depth=0"
+OR YOU CAN RUN 
+"cat dependencies.txt"
+
+Make server.js changes using nodemon
+"npm install --save-dev nodemon"
+
+Run nodemon in cmd terminal:
+"npx nodemon fileName"
+
+
+Delete everything within a directory from
+"rmdir /s /q directoryName"
+
+mysql> "create user 'root'@'%' identified by 'password';"                              
+
+mysql> "grant all on *.* to 'root'@'%' with grant option;"
+
+mysql> "flush privileges;"
+
+
+updating the authentication mode for the MySQL user account you are using. 
+Run the following command in your MySQL command prompt to update the authentication mode:
+"ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; 
+"ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password';"

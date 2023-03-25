@@ -1,0 +1,12 @@
+.login-main-container .loginForm, .login-main-container .signupForm, .signup-main-container .loginForm, .signup-main-container .signupForm {
+  width: 30%;
+  margin: 10% auto;
+}
+.login-main-container .loginForm .inputs, .login-main-container .signupForm .inputs, .signup-main-container .loginForm .inputs, .signup-main-container .signupForm .inputs {
+  background-color: white;
+  color: black;
+}
+.login-main-container .submit-btn, .signup-main-container .submit-btn {
+  width: 100%;
+  background-color: #3e7258;
+}/*# sourceMappingURL=members.css.map */

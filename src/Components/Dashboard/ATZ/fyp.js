@@ -69,3 +69,14 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+
+function toggleNavbar() {
+  var navbar = document.querySelector('.navbar');
+  navbar.classList.toggle('navbar-minimized');
+  var toggleBtn = document.querySelector('.navbar-toggle-btn');
+  if (navbar.classList.contains('navbar-minimized')) {
+    toggleBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+  } else {
+    toggleBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+  }
+}

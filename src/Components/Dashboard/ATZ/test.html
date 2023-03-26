@@ -2,27 +2,24 @@
 <html>
   <head>
     <title>For You Page</title>
-    <link rel="stylesheet" href="../../../css/dashboard/new.css">
+    <link rel="stylesheet" href="../../../css/dashboard/fyp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
   </head>
   <body>
-    <header id="#navbar">
-      <h1 class="logo">ATZ</h1>
-      <div class="search-container">
-        <form action="#">
-          <input type="text" placeholder="">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+    <div class="navbar">
+      <div class="navbar-logo">
+        <img src="logo.png" alt="Logo">
       </div>
-      <nav class="navigation">
-        <ul>
-          <li><a href="#"><i class="fa fa-home"></i></a></li>
-          <li><a href="#"><i class="fa fa-user"></i></a></li>
-          <li><a href="#"><i class="fa fa-bell"></i></a></li>
-          <li><a href="#"><i class="fa fa-envelope"></i></a></li>
-        </ul>
-      </nav>
-    </header>
+      <div class="navbar-icons">
+        <a href="#" class="navbar-icon"><i class="fas fa-home"></i> Home</a>
+        <a href="#" class="navbar-icon"><i class="fas fa-user"></i> Profile</a>
+        <a href="#" class="navbar-icon"><i class="fas fa-envelope"></i> Messages</a>
+        <a href="#" class="navbar-icon"><i class="fas fa-bell"></i> Notifications</a>
+      </div>
+      <div class="navbar-toggle">
+        <button class="navbar-toggle-btn" onclick="toggleNavbar()"><i class="fas fa-chevron-left"></i></button>
+      </div>
+    </div>
   <main>
    <!-- <div class="post-container">
         <div class="post-input">

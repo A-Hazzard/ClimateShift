@@ -1,6 +1,9 @@
 import '../../css/storyboard/canva.css'
 import templateImg from '../../imgs/1.png'
 
+import Draggable from 'react-draggable';
+
+
 
 import React, { useState, useRef, useEffect } from 'react';
 import GlobalNavbar from '../GlobalNavbar';
@@ -12,10 +15,15 @@ export default function Canva() {
         $('#slide-nav-toggle').on('click', function() {
           $('.slide-nav').fadeOut(1000);
         });
-    $('.home-header').css('backgroundColor', "grey")
+    $('.home-header').css('backgroundColor', "rgb(255,255,255)")
+    $('.home-header').css('box-shadow', '0 0 5px rgba(0, 0, 0, .3)');
 
-      
+$('.sidenav').css('box-shadow', '0 0 5px 2px rgba(0, 0, 0, .5)');
+$('.tools').css('box-shadow', '0 0 2px rgba(0, 0, 0, 0.3');
+
+    $('.sidenav').css('border', 'none');
     
+
   return (
     <div className='canva'>
         <GlobalNavbar/>
@@ -36,7 +44,7 @@ export default function Canva() {
                     </ul>
                 </aside>
 
-                <aside className='slide-nav'>
+               {/* <aside className='slide-nav'>
                     <h1>
                         WELCOME TO THE YOUR STORY BOARD
                     </h1>
@@ -52,7 +60,7 @@ export default function Canva() {
                         <button id="slide-nav-toggle" class="slide-nav-toggle">&#9654;</button>
 
                     </ul>
-                </aside>
+                </aside>*/}
 
                 <section className="canva">
 
@@ -67,7 +75,15 @@ export default function Canva() {
                     </div>
 
                     <div className="paper">
-                        <img src={templateImg} alt="templateImg" />
+                    <Draggable
+                            defaultPosition={{x: 0, y: 0}}
+                            onDrag={(event, ui) => {
+                                console.log(ui.x, ui.y);
+                            }}
+                            >
+                        <img id="image" src={templateImg} alt="templateImg" />
+
+                    </Draggable>
 
                     <div className="corner-buttons">
 

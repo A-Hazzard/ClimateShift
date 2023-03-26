@@ -38,6 +38,7 @@
 .main-container-canva .flex-wrapper .canva {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   width: 100%;
   background-color: rgb(242, 244, 248);
 }
@@ -68,6 +69,7 @@
   height: 30rem;
   -o-object-fit: contain;
      object-fit: contain;
+  cursor: pointer;
 }
 .main-container-canva .flex-wrapper .canva .paper .corner-buttons {
   position: fixed;

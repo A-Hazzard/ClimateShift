@@ -47,8 +47,10 @@
         }
 
         .canva{
+            
             display: flex;
             flex-direction: column;
+            overflow: hidden;
             // border: 4px solid green;
             width: 100%;
             background-color: rgb(242,244,248);
@@ -80,7 +82,9 @@
                 img{
                     height: 30rem;
                     object-fit: contain;
+                    cursor: pointer;
                 }
+
 
                 .corner-buttons{
                     position: fixed;

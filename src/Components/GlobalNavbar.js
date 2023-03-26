@@ -54,53 +54,39 @@ export default function GlobalNavbar() {
 
   return (
     <div className="nav">
-    {logged_in ? (
-      <nav className="logged_in-navbar">
-        <img src={logo} className = "logo" alt = "logo" onClick={()=> window.location.href = "/"}/>
+    <header className='home-header'>
+                    <div className="navbar">
+                       
+                       <ul className="nav">
+                       <li className="item">
+                           <Link to="/storyboard">StoryBoard</Link>
+                         </li>
+
+
+                         <li className="item">
+                           <Link to="/posts">Posts</Link>
+                         </li>
+                       
+                         <li className="item">
+                           <Link to="/blog">Blog</Link>
+                         </li>
+                       
+                         <li className="item">
+                           <button className= "login"><Link to="/members/login">Login</Link></button>
+                         </li>
+                       
+                         <li className="item">
+                           <button className="sign-up"><Link to="/members/signup">Sign Up Free</Link></button>
+                         </li>
+                       </ul>
+                       
             
-            <ul className="nav nav-tabs">
-
-                <li className="nav-item dropdown">
-                  <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" to="#" role="button" aria-expanded="false">
-                    <i className="fa-solid fa-circle active-status"></i>
-                      {user ? (
-                          user.name
-                      ): null}
-                </Link>
-                  <ul className="dropdown-menu">
-                   
-                    <li><Link className="dropdown-item" onClick={handlelogOut}>Logout</Link></li>
-                  </ul>
-                </li>
-               
-                    <li className="nav-item"><Link className="nav-link" to={'/about'}>About</Link>
-                    </li>
-                    <li className="nav-item"><Link className="nav-link" to={'/contact'}>Contact</Link>
-                        </li> 
-                        <li className="nav-item"><Link className="nav-link" to={'/storyboard'}>StoryBoard</Link>
-                        </li>
-                
-              </ul>
-        </nav>
-
-        ) : (
-
-          <nav className="logged_out-navbar">
-            <ul className="nav nav-tabs">
-              <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link></li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/about">About</Link></li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/contact">Contact</Link></li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/members/signup">Login/Signup</Link></li>
-            </ul>
-          </nav>
-
-          
-
-    )}
+                    <div className="logo">
+                        <img src="#" />
+                    </div>
+                    </div>
+                </header>
+                <hr />
     </div>
     
    

@@ -1,0 +1,144 @@
+.main-container-canva {
+    .flex-wrapper {
+        display: flex;
+        flex-direction: row;
+        // border: 5px solid green;
+
+        .sidenav{
+                background-color: rgb(255,255,255);
+                top: 0;
+                left: 0;
+                width: 10%;
+                height: 101.5vh;
+                z-index: -1;
+                padding-top: 8%;
+                border-right: 1px solid black;
+                margin-top: -3%;
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    li{
+                        margin-bottom: 20%;
+                        margin-right: 25%;
+                        button{
+                            border: none !important;
+                                background: transparent;
+                            
+                            i{
+                                font-size: 2rem;
+                                background: transparent;
+
+                            }
+                        }
+
+                    }
+                }
+        }
+        
+        .slider{
+                ul{
+                    li{
+                    list-style-type: disc !important;
+                    margin-bottom: 10%;
+                }
+            }
+        }
+
+        .canva{
+            
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            // border: 4px solid green;
+            width: 100%;
+            background-color: rgb(242,244,248);
+            .tools{
+                // border: 2px solid black;
+                width: 100%;
+                background-color: rgb(255,255,255);
+                padding-top: 5%;
+                margin-bottom: 1%;
+                ul{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1%;
+                    margin-left: -3%;
+
+                    li{
+                        border-right: 1px solid;
+                        padding-right: 2%;    
+                        font-size: .7rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .paper{
+                margin: 2% auto;
+                img{
+                    height: 30rem;
+                    object-fit: contain;
+                    cursor: pointer;
+                }
+
+
+                .corner-buttons{
+                    position: fixed;
+                    margin-left: 32%;
+                    width: 20%;
+                    
+                    .zoom-buttons, .pages{
+                        box-shadow: 2px 5px 5px rgb(196, 194, 194);
+                    }
+
+                    .zoom{
+                        // background-color: rgb(255,255,255);
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        
+                        .zoom-buttons{
+                            display: inline;
+                            width: 60%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: rgb(255,255,255);
+                            border-radius: .5rem;
+
+                            .zoom-out, .zoom-in{
+                                width: 20%;
+                                height: 2rem;
+                                background-color: transparent;
+                                border: none;
+                            }
+
+                            .fit{
+                                font-size: 1.5rem;
+                                margin-left: 10%;
+                                margin-right: 10%;
+                            }
+                        }
+                        .pages{
+                            margin-left: 10%;
+                            height: 100%;
+                            width: 40%;
+                            background-color: rgb(255,255,255);
+                            text-align: center;
+                            height: 2.5rem;
+                            padding-top: 3%;
+                        }
+                     
+                    }
+                }
+            }
+        }
+
+    }
+}
+

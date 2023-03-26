@@ -1,5 +1,9 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  font-family:Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   }
   
   body {
@@ -22,10 +26,11 @@
     height: 80px;
     padding: 0 20px;
     transition: background-color 0.3s ease-in-out;
+    z-index: 200;
   }
   
   .navbar.scrolled {
-    background-color: rgb(144, 144, 144);
+    background-color: rgb(252, 126, 126);
     transition: background-color 0.5s ease-in-out;
   }
   
@@ -43,6 +48,8 @@
     border-radius: 20px;
     padding: 5px 10px;
     margin: 0 20px;
+    position: relative;
+    left: 3%;
   }
   
   .search-bar input {
@@ -84,11 +91,14 @@
 
 /*Dropdown*/
 .dropdown {
-    position: relative;
+    position: absolute;
+    left: 37%;
     display: inline-block;
     max-width: 400px;
     text-align: center;
+    z-index: 1;
   }     
+
 
   .dropdown-header {
     display: flex;
@@ -97,6 +107,9 @@
     background-color: #f2f2f2;
     border: 1px solid #ccc;
     cursor: pointer;
+    border-radius: 25px;
+    width: 145%;
+    outline: 0;
   }
   
   .dropdown-header span {
@@ -112,10 +125,10 @@
   .dropdown-content {
     position: absolute;
     top: 100%;
-    left: 50%;
+    left: 75%;
     transform: translateX(-50%);
     background-color: #f9f9f9;
-    min-width: 200px;
+    min-width: 500px;
     max-width: 400px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -141,9 +154,12 @@
   }
   
   .dropdown-content form textarea {
-    width: 100%;
+    position: relative;
+    top: -5%;
+    left: -50%;
+    width: 200%;
     margin-bottom: 8px;
-    padding: 8px;
+    padding: 50px;
     border: 1px solid #ccc;
     resize: none;
   }
@@ -155,6 +171,8 @@
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 10px;
+    width: 25%;
   }
   
   .dropdown-content i {
@@ -165,6 +183,17 @@
     font-size: 14px;
     transition: transform 0.2s ease-in-out;
   }
+
+  .dropdown .fa-image {
+    color: green;
+    font-size: 1.2em;
+  }
+
+  .dropdown .fa-video{
+    color: rgb(167, 0, 0);
+    font-size: 1.2em;
+  }
+
   /*End of Dropdown*/
   
   
@@ -173,6 +202,11 @@
 	text-align:center;
 	padding:10px;
 }
+
+#all-tab.active{
+  display: inline
+  }
+
 .tabbuttons h1{
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -199,7 +233,8 @@
 }
 
 .tab-btn.active {
-  background-color: #555;
+  background-color: #01b413;
+  color: rgb(255, 255, 255);
 }
 
 .tab-content {
@@ -258,7 +293,7 @@
     border: 1px solid #ccc;
     margin: 20px auto;
     padding: 30px;
-    width:500px;
+    width: 100%;
     border-radius: 10px;
   }
   
@@ -305,6 +340,10 @@
     padding: 10px;
     transition: all 0.3s ease-in-out;
   }
+
+  .post-actions a{
+    text-decoration: none;
+  }
   
   .post-actions button:hover {
     color: #000;
@@ -315,11 +354,11 @@
   }
   
   .fa-comment {
-    color: #00f;
+    color: rgb(94, 94, 255);
   }
   
   .fa-share {
-    color:#ff0;
+    color:rgb(0, 255, 55);
 }
 
 .fa {
@@ -344,3 +383,167 @@ margin: 10px;
 padding: 10px;
 }}  
 /*Posts end*/
+
+#all-tab .post,
+#parts-tab .post,
+#machines-tab .post{
+  width: 700px;
+  background-color: #f1f0f0;
+}
+
+/*Side Nav*/
+.sidebar-nav {
+  position: sticky;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-top: 2px;
+  background-color: #ffffff;
+}
+
+.sidebar-nav .fa-home {
+  color: rgb(197, 30, 30);
+}
+
+.fa-user-group {
+  color: rgb(197, 30, 30);
+}
+
+.fa-clock {
+  color: rgb(197, 30, 30);
+}
+
+.fa-people-group{
+  color: rgb(197, 30, 30);
+}
+
+.fa-gear {
+  color: rgb(197, 30, 30);
+}
+
+.fa-right-from-bracket{
+  color: rgb(197, 30, 30);
+}
+
+.sidebar-nav li {
+  text-indent: 15px;
+  line-height: 50px;
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: #000000;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #790f0f;
+  border-left: rgb(223, 121, 61) 2px solid;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  #wrapper {
+     padding-left: 250px;
+  }
+  .fixed-brand {
+     width: 250px;
+  }
+  #wrapper.toggled {
+     padding-left: 0;
+  }
+  #sidebar-wrapper {
+     width: 250px;
+  }
+  #wrapper.toggled #sidebar-wrapper {
+     width: 250px;
+  }
+  #wrapper.toggled-2 #sidebar-wrapper {
+     width: 50px;
+  }
+  #wrapper.toggled-2 #sidebar-wrapper:hover {
+     width: 250px;
+  }
+  #page-content-wrapper {
+     padding: 20px;
+     position: relative;
+     -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+     -o-transition: all 0.5s ease;
+     transition: all 0.5s ease;
+  }
+  #wrapper.toggled #page-content-wrapper {
+     position: relative;
+     margin-right: 0;
+     padding-left: 250px;
+  }
+  #wrapper.toggled-2 #page-content-wrapper {
+     position: relative;
+     margin-right: 0;
+     margin-left: -200px;
+     -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+     -o-transition: all 0.5s ease;
+     transition: all 0.5s ease;
+     width: auto;
+  }
+}
+
+.account {
+  text-align: left;
+  font-size: 0.8em;
+  color:#c4c4c4;
+}
+
+.account img {
+  border-radius: 50%;
+  float: left;
+  position: absolute;
+  top: 2%;
+  left: 3%;
+}
+
+.account h3 {
+  position: absolute;
+  top: 3%;
+  left: 35%;
+}
+
+.account p {
+  position: absolute;
+  top: 6%;
+  left: 35%
+}
+
+.nav-stacked {
+  position: absolute;
+  top: 25%
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+

@@ -1,21 +1,48 @@
 import React, { useState, useEffect } from 'react';
-
+import defaultImg from '../imgs/carnival.jpg'
 export default function Testblog() {
 
-  let [blogTitle, setBlogTitle] = useState('');
-  let [blogDescription, setBlogDescription] = useState('');
-  let [blogImage, setBlogImage] = useState('');
-  let [blogDateCreated, setDateCreated] = useState('');
-  let [blogPosts, setBlogPosts] = useState('');
+  let [blogPosts, setBlogPosts] = useState([]);
   let [user, setUser] = useState(null)
   let [token, setToken] = useState(null)
   let [logged_in, setLogged_in] = useState(false)
-
+  let [error, setError] = useState('')
+  
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
 
-  useEffect(()=>{
+  const handleSubmit = async (event) => {
+    // event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('user_id', user.id);
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('image', event.target.image.files[0]);
+
+    try {
+      const response = await fetch('http://localhost:3001/blogs', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to upload blog post')
+      }
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    
     (async function fetchUser(){
       try{
         const token = localStorage.getItem('token')
@@ -23,10 +50,7 @@ export default function Testblog() {
         if(token){
           const response = await fetch('http://localhost:3001/user',{
             method: 'POST',
-            credentials: 'include',
-            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`, 
-            credentials: 'include',
-        }
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
           })
           setLogged_in(true)
           const data = await response.json();
@@ -37,69 +61,31 @@ export default function Testblog() {
         console.error(error)
       }
     })();
-
-    (async function fetchBlogs(){
-        try{
-            const response = await fetch('http://localhost:3001/blogposts', {
-                method: 'GET',
-                headers: {
-                  'Content-Type': 'application/json'
-                }
-            });
-
-            const data = await response.json()
-
-          if (response.ok) {
-              data.blogposts.forEach((row) => {
-                setBlogTitle(row.title);
-                setBlogDescription(row.description);
-                setDateCreated(row.created_at);
-              });
-
-              setBlogPosts(data.blogposts)
-          } else {
-              console.log(data.error);
-          }
-          
-            // console.log(`Found user ${data.user.name}`)
-        } catch(error) {
-            console.error(error);
+    
+    
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch("http://localhost:3001/blogposts");
+        if (!response.ok) {
+          throw new Error("Something went wrong while fetching the data.");
         }
-    })();
-    
-    
-  },[])
-
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-  
-    try {
-      const response = await fetch('http://localhost:3001/blogs', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
-        body: JSON.stringify({ title, description , image ,'user_id': user.id })
-     
-    })
-  
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const data = await response.json();
+        setBlogPosts(data.blogposts); // Fix - use array of blog posts received from the API.
+      } catch (error) {
+        setError(error.message);
       }
+    };
 
-      const data = await response.json();
-      console.log(data); // assuming the API returns the created blog object
-
-      if(response.ok){
-        alert(data.message)
-      }
-    } catch (error) {
-      alert(error);
-    }
-  };
-
+    
+    fetchPosts();
+  }, []);
+  
+  if (error) {
+    alert(error)
+  }
   return (
     <div className="blog-container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} enctype="multipart/form-data">
         <div className="form-group">
           <label htmlFor="title">Title:</label>
           <input
@@ -138,17 +124,13 @@ export default function Testblog() {
         <button type="submit">Submit</button>
       </form>
 
-
-      {
-        Object.values(blogPosts).map(blog => (
-          <div className="blog-wrapper">
-            <p className="title">{blog.title}</p>
-            <p className="description">{blog.description}</p>
-            <p className="image">{blog.image}</p>
-          </div>
-        ))
-      }
-      
+      {blogPosts.map((post) => (
+        <div key={post._id}>
+          <h2>{post.title}</h2>
+          <p>{post.description}</p>
+          <img src={defaultImg} alt={post.title} />
+        </div>
+      ))}
     </div>
   );
 }

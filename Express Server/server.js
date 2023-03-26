@@ -4,6 +4,8 @@ const cors = require('cors')
 const mysql = require('mysql')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const multer = require('multer');
+
 
 const app = express()
 const port = 3001
@@ -15,6 +17,16 @@ const pool = mysql.createPool({
   database: 'sql10608369',
   port: 3306
 })
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'Express Server/Images');
+  },
+  filename: function(req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+const upload = multer({ storage: storage });
 
 
 app.use(cors({
@@ -35,7 +47,6 @@ async function hashPassword(password) {
   const hashedPassword = await bcrypt.hash(password, saltRounds);
   return hashedPassword;
 }
-
 
 app.post('/signup', async (request, response) => {
   const {username, email, password1, password2} = request.body;
@@ -153,6 +164,39 @@ app.post('/login', (request, response) => {
   });
 });
 
+
+app.get('/all_users', (request, response) => {
+
+   pool.getConnection((error, connection) => {
+    if(error) throw error;
+
+    connection.query('SELECT id, username FROM users', async (errors, users) =>{
+      if(errors){
+        console.error(errors)
+        return response.status(500).json({ error: 'Internal server error' });
+      }
+
+      if(users == 0) return response.status(500).json({error: 'No users'})
+
+
+      const user = [];
+      
+      users.forEach((row) => {
+        const user_list = {
+          id: row.id,
+          name: row.username,
+        };
+
+
+        user.push(user_list);
+      });
+      console.log(user)
+      return response.status(200).json({user})
+    });
+  });
+});
+
+
 app.post('/logout', (request, response) => {
   console.log('logging out user...')
   request.session.destroy((error) => {
@@ -192,13 +236,15 @@ app.post('/user', (request, response) => {
   }
 });
 
-app.post('/blogs', async (req, res) => {
-  // Check if user is authenticated
-const authHeader = req.headers.authorization;
-const token = authHeader && authHeader.split(' ')[1];
-  const { title, description, image, user_id } = req.body;
 
-  console.log(`Title: ${title}, Description: ${description}, Image: ${image}, User Id: ${user_id}`)
+app.post('/blogs', upload.single('image'), async (req, res) => {
+  // Check if user is authenticated
+  const authHeader = req.headers.authorization;
+  const token = authHeader && authHeader.split(' ')[1];
+  const { description, user_id } = req.body;
+  // const image = req.file.filename;
+
+  // console.log(`Title: ${title}, Description: ${description}, Image: ${image}, User Id: ${user_id}`)
 
   if (!token) 
     return res.status(401).json({ error: 'Unauthorized' });
@@ -206,15 +252,15 @@ const token = authHeader && authHeader.split(' ')[1];
   try {
     // Get blog data from request body
     // Insert blog into database
-    const result = await pool.query('INSERT INTO blogs (title, description, image, user_id) VALUES (?, ?, ?, ?)',[title, description, image, user_id], (errors, result) => {
+    const result = await pool.query('INSERT INTO blogs (description, user_id) VALUES (?, ?)',[description, user_id], (errors, result) => {
       if(errors){
         console.error(errors)
         return res.status(500).json({ error: 'Internal server error' });
       }
 
-    // Return success response
-    res.status(201).json({ message: 'Blog created successfully' });
-  })
+      // Return success response
+      res.status(201).json({ message: 'Blog created successfully' });
+    })
 
 
   } catch (error) {
@@ -223,34 +269,72 @@ const token = authHeader && authHeader.split(' ')[1];
   }
 });
 
-app.get('/blogposts', (req, res) => {
-  console.log('Getting blogs')
-
-  pool.query('SELECT * FROM blogs', (error, results) => {
-    if (error) {
-      console.log('Error retrieving blog posts: ', error);
-      res.status(500).json({ error: 'Error retrieving blog blogs' });
-    } else {
-      console.log('Retrieved blog posts: ', results);
-      const blogposts = [];
-      
-      results.forEach((row) => {
-        const post = {
-          id: row.id,
-          title: row.title,
-          description: row.description,
-          image: row.image,
-          date_created: row.created_at
-        };
 
 
-        blogposts.push(post);
-      });
+app.get("/blogposts-with-users", (req, res) => {
+  console.log('getting posts with username')
+  pool.getConnection((error, connection) => {
+    if (error) throw error;
 
-      res.status(200).json({ blogposts });
-    }
+    const query = `
+      SELECT b.id, b.description, b.user_id, u.username
+      FROM blogs b
+      JOIN users u ON u.id = b.user_id
+    `;
+    connection.query(query, (err, results) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: "Internal server error" });
+      }
+
+      const blogposts = results.map((result) => ({
+        id: result.id,
+        user_id: result.user_id,
+        name: result.username,
+        description: result.description,
+      }));
+
+      console.log(`Blog post names: ${blogposts}`);
+
+      return res.status(200).json({ blogposts });
+    });
   });
 });
+
+
+
+
+// app.get('/blogposts', (req, res) => {
+//   console.log('Getting blogs')
+
+//   pool.query('SELECT id, title, description, CONCAT("/images/", image) AS image_path, created_at FROM blogs', (error, results) => {
+//     if (error) {
+//       console.log('Error retrieving blog posts: ', error);
+//       res.status(500).json({ error: 'Error retrieving blog blogs' });
+//     } else {
+      
+//       console.log('Retrieved blog posts: ', results);
+//       const blogposts = [];
+      
+//       results.forEach((row) => {
+//         const post = {
+//           id: row.id,
+//           title: row.title,
+//           description: row.description,
+//           image: row.image_path, // Use the new image_path column instead of the original image column
+//           date_created: row.created_at
+//         };
+
+
+//         blogposts.push(post);
+//       });
+
+//       console.log(blogposts)
+
+//       res.status(200).json({ blogposts });
+//     }
+//   });
+// });
 
 
 

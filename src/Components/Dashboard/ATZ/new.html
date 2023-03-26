@@ -2,8 +2,9 @@
 <html>
   <head>
     <title>For You Page</title>
-    <link rel="stylesheet" href="../../../css/dashboard/new.css">
+    <link rel="stylesheet" href="new.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
     <!--Navigation-->
@@ -20,11 +21,46 @@
             <li><a href="#"><i class="fa fa-envelope"></i></a></li>
         </ul>
     </nav>
+
+    <!--Side Nav-->
+    <div id="sidebar-wrapper">
+      <div class="account">
+          <img src = "/images/users.png" width = "70" height = "70"> 
+          <h3>Tyler Bhagwandeen</h3>
+          <p>Welcome Back Mr. Bhagwandeen!</p>
+      </div>
+     <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+        <li class="active">
+           <a href="admin-home.html"><span class="fa-stack fa-lg pull-left"><i class="fa fa-home"></i></span> Home Page</a>
+        </li>
+        <li>
+           <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+           </ul>
+        </li>
+        <li>
+           <a href="admin-product.html"><span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-user-group"></i></span>Friends<i class="fa-solid fa-chevron-down" style="font-size:10px"></i></a>
+        </li>
+        <li>
+           <a href="calender.html"> <span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-clock"></i></span>Most Recent </a>
+        </li>
+        <li>
+           <a href="mailbox.html"><span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-people-group"></i></i></span>Groups<i class="fa-solid fa-chevron-down" style="font-size:10px"></i></a>
+        </li>
+        <li>
+           <a href="settings.html"><span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-gear"></i></span>Settings<i class="fa-solid fa-chevron-down" style="font-size:10px"></i></a>
+        </li>
+        <li><br><br><br><br>
+          <a href="/home.html"><span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-right-from-bracket"></i></span>Log out</a>
+       </li>
+     </ul>
+  </div>
+
     <!--Dropdown-->
     <div class="dropdown">
         <div class="dropdown-header">
           <span>What's on your mind?</span>
-          <i class="fas fa-caret-up"></i>
+          <i class="fa-solid fa-image"></i>
+          <i class="fa-solid fa-video"></i>
           <i class="fas fa-caret-down"></i>
         </div>
         <div class="dropdown-content">
@@ -33,11 +69,10 @@
                 <textarea placeholder="Type your message here"></textarea>
             </div>        
             <button type="submit">Post</button>
-            <i class="fas fa-paperclip"></i>
           </form>
           <i class="fas fa-caret-down"></i>
         </div>
-      </div>
+      </div><Br><Br>
     <!--End of dropdown-->
 
     <!--TABS--> 

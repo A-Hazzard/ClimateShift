@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>For You Page</title>
+    <link rel="stylesheet" href="../../../css/dashboard/new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  </head>
+  <body>
+    <header id="#navbar">
+      <h1 class="logo">ATZ</h1>
+      <div class="search-container">
+        <form action="#">
+          <input type="text" placeholder="">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <nav class="navigation">
+        <ul>
+          <li><a href="#"><i class="fa fa-home"></i></a></li>
+          <li><a href="#"><i class="fa fa-user"></i></a></li>
+          <li><a href="#"><i class="fa fa-bell"></i></a></li>
+          <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+        </ul>
+      </nav>
+    </header>
+  <main>
+   <!-- <div class="post-container">
+        <div class="post-input">
+        <div class="post-headers">
+            <i id="dropdown-icon" class="fa fa-chevron-down"></i>
+            <span id="post-text">What's on your mind?</span>
+        </div>
+        <div id="post-info" class="post-info">
+            <textarea id="post-input" placeholder="Type your post here"></textarea>
+            <button id="post-button">Post</button>
+        </div>
+        </div>
+    </div>-->
+        <div class="tabbuttons">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="all">All</button>
+                <button class="tab-btn" data-tab="parts">Events</button>
+                <button class="tab-btn" data-tab="machines">Culinary</button>
+            </div>
+        </div>  
+    <div id="all-tab" class="tab-content active">   
+      <section class="post">
+        <div class="post-header">
+          <img src="../../../imgs/avatar.jpg" alt="user profile picture">
+          <div class="post-info">
+            <h2>kevin_r868</h2>
+            <p>2 hours ago</p>
+          </div>
+        </div>
+        <div class="post-content">
+          <p>Carnival 2K23!! </p>
+          <img src="../../../imgs/carnival.jpg" alt="post image">
+        </div>
+        <div class="post-actions">
+            <a class="like-btn" href="#">
+                <i class="fa fa-heart"></i> Like
+            </a>
+          <button><i class="fa fa-comment"></i> Comment</button>
+          <button><i class="fa fa-share"></i> Share</button>
+        </div>
+      </section>
+      <section class="post">
+        <div class="post-header">
+          <img src="https://via.placeholder.com/50x50" alt="user profile picture">
+          <div class="post-info">
+            <h2>Username</h2>
+            <p>2 hours ago</p>
+          </div>
+        </div>
+        <div class="post-content">
+          <p>So loving this new Bunji tune!! <a href=""> #iaintcomeherefornostandup</a> !!</p>
+        </div>
+        <div class="post-actions">
+            <a class="like-btn" href="#">
+                <i class="fa fa-heart"></i> Like
+            </a>
+          <button><i class="fa fa-comment"></i> Comment</button>
+          <button><i class="fa fa-share"></i> Share</button>
+        </div>
+      </section>
+    </div>
+     <div id="parts-tab" class="tab-content">
+      <p>Events content goes here.</p>
+    </div>
+    <div id="machines-tab" class="tab-content">
+        <section class="post">
+            <div class="post-header">
+              <img src="../../../imgs/avatar2.jpg" alt="user profile picture">
+              <div class="post-info">
+                <h2>ricardoconstantine</h2>
+                <p>5 hours ago</p>
+              </div>
+            </div>
+            <div class="post-content">
+              <p>Richard's still have it boii...</p>
+              <img src="../../../imgs/bakeandshark.jpg" alt="post image">
+            </div>
+            <div class="post-actions">
+                <a class="like-btn" href="#">
+                    <i class="fa fa-heart"></i> Like
+                </a>
+              <button><i class="fa fa-comment"></i> Comment</button>
+              <button><i class="fa fa-share"></i> Share</button>
+            </div>
+          </section>
+    </div>  
+    </main>
+    <script src="fyp.js"></script>
+  </body>
+</html>

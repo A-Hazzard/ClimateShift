@@ -58,8 +58,13 @@ export default function GlobalNavbar() {
                     <div className="navbar">
                        
                        <ul className="nav">
-                         <li className="item">
+                       <li className="item">
                            <Link to="/storyboard">StoryBoard</Link>
+                         </li>
+
+
+                         <li className="item">
+                           <Link to="/posts">Posts</Link>
                          </li>
                        
                          <li className="item">

@@ -1,5 +1,6 @@
 import Home from './Components/Home/Home'
 import StoryBoard from './Components/StoryBoard/StoryBoard'
+import Posts from './Components/Dashboard/Posts'
 import Testblog from './Components/Testblog'
 import Canva from './Components/StoryBoard/Canva'
 import Login from './Components/Members/Login';
@@ -18,6 +19,7 @@ function App() {
             <Route path="/storyboard" element={<StoryBoard/>} />
             <Route path="/storyboard/canva" element={<Canva/>} />
             <Route path="/storyboard/test" element={<Testblog/>} />
+            <Route path="/posts" element={<Posts/>} />
             <Route path="/members/signup" element={<Signup/>} />
             <Route path="/members/login" element={<Login/>} />
           </Routes>

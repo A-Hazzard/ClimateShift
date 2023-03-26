@@ -12,14 +12,15 @@ import $ from 'jquery';
 export default function Canva() {
 
 
-        $('#slide-nav-toggle').on('click', function() {
-          $('.slide-nav').fadeOut(1000);
-        });
+    $('#slide-nav-toggle').on('click', function() {
+        $('.slide-nav').fadeOut(1000);
+    });
+    
     $('.home-header').css('backgroundColor', "rgb(255,255,255)")
     $('.home-header').css('box-shadow', '0 0 5px rgba(0, 0, 0, .3)');
 
-$('.sidenav').css('box-shadow', '0 0 5px 2px rgba(0, 0, 0, .5)');
-$('.tools').css('box-shadow', '0 0 2px rgba(0, 0, 0, 0.3');
+    $('.sidenav').css('box-shadow', '0 0 5px 2px rgba(0, 0, 0, .5)');
+    $('.tools').css('box-shadow', '0 0 2px rgba(0, 0, 0, 0.3');
 
     $('.sidenav').css('border', 'none');
     

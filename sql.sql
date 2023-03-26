@@ -11,6 +11,13 @@ CREATE TABLE users (
   date_joined DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   last_login DATETIME NULL DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE blogs (
+    id INT PRIMARY KEY,
+    title VARCHAR(255),
+    content TEXT,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
 
 INSERT INTO users (username, email, password, is_superuser, is_staff, is_active)
 VALUES ('admin', '868drgnstudio@gmail.com', 'admin', TRUE, TRUE, FALSE);

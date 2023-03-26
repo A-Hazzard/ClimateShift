@@ -185,15 +185,76 @@ app.post('/user', (request, response) => {
     console.log(`Found user ${user.name}`)
     
     return response.status(200).json({ user: user });
+
   } catch (error) {
     console.error(error);
     return response.status(500).json({ error: 'Internal server error' });
   }
 });
 
+app.post('/blogs', async (req, res) => {
+  // Check if user is authenticated
+const authHeader = req.headers.authorization;
+const token = authHeader && authHeader.split(' ')[1];
+  const { title, description, image, user_id } = req.body;
+
+  console.log(`Title: ${title}, Description: ${description}, Image: ${image}, User Id: ${user_id}`)
+
+  if (!token) 
+    return res.status(401).json({ error: 'Unauthorized' });
+  
+  try {
+    // Get blog data from request body
+    // Insert blog into database
+    const result = await pool.query('INSERT INTO blogs (title, description, image, user_id) VALUES (?, ?, ?, ?)',[title, description, image, user_id], (errors, result) => {
+      if(errors){
+        console.error(errors)
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+
+    // Return success response
+    res.status(201).json({ message: 'Blog created successfully' });
+  })
+
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/blogposts', (req, res) => {
+  console.log('Getting blogs')
+
+  pool.query('SELECT * FROM blogs', (error, results) => {
+    if (error) {
+      console.log('Error retrieving blog posts: ', error);
+      res.status(500).json({ error: 'Error retrieving blog blogs' });
+    } else {
+      console.log('Retrieved blog posts: ', results);
+      const blogposts = [];
+      
+      results.forEach((row) => {
+        const post = {
+          id: row.id,
+          title: row.title,
+          description: row.description,
+          image: row.image,
+          date_created: row.created_at
+        };
+
+
+        blogposts.push(post);
+      });
+
+      res.status(200).json({ blogposts });
+    }
+  });
+});
+
 
 
 
 app.listen(port, () => {
-  console.log("NE1-FREELANCE server listening on port " + port);
+  console.log("server listening on port " + port);
 });

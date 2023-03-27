@@ -47,7 +47,7 @@ export default function Signup(){
     
     // Insert user into database
     try{
-        const response = await fetch('http://localhost:3001/signup', {
+        const response = await fetch('http://localhost:3003/signup', {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ username, email, password1, password2})

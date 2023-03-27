@@ -67,13 +67,9 @@ export default function GlobalNavbar() {
 
 
                          <li className="item">
-                           <Link to="/posts">Posts</Link>
+                           <Link to="/posts">Community</Link>
                          </li>
-                       
-                         <li className="item">
-                           <Link to="/blog">Blog</Link>
-                         </li>
-                       
+                      
                          <li className="item">
                            <button className= "login"><Link to="/members/login">Login</Link></button>
                          </li>

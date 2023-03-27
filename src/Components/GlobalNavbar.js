@@ -60,16 +60,41 @@ export default function GlobalNavbar() {
                         <img src="#" />
                     </div>
                        
+                    {logged_in ? (
+
                        <ul className="nav">
-                       <li className="item">
+
+                       {window.location.pathname !== '/' ? 
+                      (
+                        <li className="item">
+                           <Link to="/">Home</Link>
+                         </li>
+                      ):null}
+
+                        <li className="item">
                            <Link to="/storyboard">StoryBoard</Link>
                          </li>
 
+                     
+                       
 
                          <li className="item">
                            <Link to="/posts">Community</Link>
                          </li>
+                         </ul>
+                      ): (
+                        <ul className="nav">
+                          {window.location.pathname !== '/' ? 
+                            (
+                              <li className="item">
+                                <Link to="/">Home</Link>
+                              </li>
+                            ):null}
                       
+
+                         <li className="item">
+                           <Link to="/posts">Community</Link>
+                         </li>
                          <li className="item">
                            <button className= "login"><Link to="/members/login">Login</Link></button>
                          </li>
@@ -78,7 +103,7 @@ export default function GlobalNavbar() {
                            <button className="sign-up"><Link to="/members/signup">Sign Up Free</Link></button>
                          </li>
                        </ul>
-                       
+                      )}
             
                     
                     </div>

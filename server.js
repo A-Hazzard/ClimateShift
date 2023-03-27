@@ -8,7 +8,7 @@ const multer = require('multer');
 
 
 const app = express()
-const port = 3001
+const port = 3003
 
 const pool = mysql.createPool({
   host: 'sql10.freesqldatabase.com',
@@ -20,7 +20,7 @@ const pool = mysql.createPool({
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, 'Express Server/Images');
+    cb(null, 'src/Express Server/Images');
   },
   filename: function(req, file, cb) {
     cb(null, Date.now() + '-' + file.originalname);
@@ -40,6 +40,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(express.static('public'));
 
 //Password hasing function
 async function hashPassword(password) {
@@ -236,15 +237,12 @@ app.post('/user', (request, response) => {
   }
 });
 
-
 app.post('/blogs', upload.single('image'), async (req, res) => {
   // Check if user is authenticated
   const authHeader = req.headers.authorization;
   const token = authHeader && authHeader.split(' ')[1];
   const { description, user_id } = req.body;
-  // const image = req.file.filename;
-
-  // console.log(`Title: ${title}, Description: ${description}, Image: ${image}, User Id: ${user_id}`)
+  const image = req.file.filename;
 
   if (!token) 
     return res.status(401).json({ error: 'Unauthorized' });
@@ -252,7 +250,7 @@ app.post('/blogs', upload.single('image'), async (req, res) => {
   try {
     // Get blog data from request body
     // Insert blog into database
-    const result = await pool.query('INSERT INTO blogs (description, user_id) VALUES (?, ?)',[description, user_id], (errors, result) => {
+    const result = await pool.query('INSERT INTO blogs (description, image, user_id) VALUES (?, ?, ?)',[description, image, user_id], (errors, result) => {
       if(errors){
         console.error(errors)
         return res.status(500).json({ error: 'Internal server error' });
@@ -262,14 +260,37 @@ app.post('/blogs', upload.single('image'), async (req, res) => {
       res.status(201).json({ message: 'Blog created successfully' });
     })
 
-
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
 
+app.post('/testblogs', upload.single('image'), async (req, res) => {
+  // Check if user is authenticated
+  const { title, description, user_id } = req.body;
+  const image = req.file.filename;
 
+  console.log('Attempting upload')
+
+  try {
+    // Get blog data from request body
+    // Insert blog into database
+    const result = await pool.query('INSERT INTO blogs (title, description, image, user_id) VALUES (?, ?, ?, ?)',[title, description, image, user_id], (errors, result) => {
+      if(errors){
+        console.error(errors)
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+
+      // Return success response
+      res.status(201).json({ message: 'Blog created successfully' });
+    })
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+})
 
 app.get("/blogposts-with-users", (req, res) => {
   console.log('getting posts with username')
@@ -277,7 +298,7 @@ app.get("/blogposts-with-users", (req, res) => {
     if (error) throw error;
 
     const query = `
-      SELECT b.id, b.description, b.user_id, u.username
+      SELECT b.id, b.description, b.image, b.user_id, u.username
       FROM blogs b
       JOIN users u ON u.id = b.user_id
     `;
@@ -290,6 +311,8 @@ app.get("/blogposts-with-users", (req, res) => {
       const blogposts = results.map((result) => ({
         id: result.id,
         user_id: result.user_id,
+        title: result.title,
+        image: result.image,
         name: result.username,
         description: result.description,
       }));

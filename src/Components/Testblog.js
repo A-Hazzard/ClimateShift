@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import defaultImg from '../imgs/carnival.jpg'
+import img from '../Express Server/Images/1679878798377-logo.png'
 export default function Testblog() {
 
   let [blogPosts, setBlogPosts] = useState([]);
   let [user, setUser] = useState(null)
+  let [all_users, setAllUsers] = useState([])
   let [token, setToken] = useState(null)
   let [logged_in, setLogged_in] = useState(false)
   let [error, setError] = useState('')
@@ -12,8 +14,9 @@ export default function Testblog() {
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
 
+ 
   const handleSubmit = async (event) => {
-    // event.preventDefault();
+    event.preventDefault();
 
     const formData = new FormData();
     formData.append('user_id', user.id);
@@ -21,11 +24,12 @@ export default function Testblog() {
     formData.append('description', description);
     formData.append('image', event.target.image.files[0]);
 
+    console.log(`Submitting, ID: ${user.id} \nTitle: ${title} \nDescription: ${description} \nImage: ${event.target.image.files[0]}`)
     try {
-      const response = await fetch('http://localhost:3001/blogs', {
+      const response = await fetch('http://localhost:3003/testblogs', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}`,
         },
         body: formData
       });
@@ -37,18 +41,18 @@ export default function Testblog() {
       const data = await response.json();
       console.log(data);
     } catch (error) {
-      console.error(error);
+      console.error("Catching error:\n" + error);
     }
   };
 
   useEffect(() => {
     
-    (async function fetchUser(){
+    (async function fetchCurrentUser(){
       try{
         const token = localStorage.getItem('token')
 
         if(token){
-          const response = await fetch('http://localhost:3001/user',{
+          const response = await fetch('http://localhost:3003/user',{
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
           })
@@ -62,10 +66,24 @@ export default function Testblog() {
       }
     })();
     
+    (async function fetchAllUsers(){
+      try{
+
+          const response = await fetch('http://localhost:3003/all_users',{
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json'}
+          })
+          const data = await response.json();
+          setAllUsers(data.user);
+          // console.log(`Found user ${data.user.name}`)
+      }catch(error){
+        console.error(error)
+      }
+    })();
     
-    const fetchPosts = async () => {
+    (async function fetchPosts() {
       try {
-        const response = await fetch("http://localhost:3001/blogposts");
+        const response = await fetch("http://localhost:3003/blogposts-with-users");
         if (!response.ok) {
           throw new Error("Something went wrong while fetching the data.");
         }
@@ -74,18 +92,16 @@ export default function Testblog() {
       } catch (error) {
         setError(error.message);
       }
-    };
+    })();
 
-    
-    fetchPosts();
-  }, []);
+  }, [token]);
   
   if (error) {
     alert(error)
   }
   return (
     <div className="blog-container">
-      <form onSubmit={handleSubmit} enctype="multipart/form-data">
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="form-group">
           <label htmlFor="title">Title:</label>
           <input
@@ -124,13 +140,26 @@ export default function Testblog() {
         <button type="submit">Submit</button>
       </form>
 
-      {blogPosts.map((post) => (
-        <div key={post._id}>
-          <h2>{post.title}</h2>
-          <p>{post.description}</p>
-          <img src={defaultImg} alt={post.title} />
-        </div>
-      ))}
+      {blogPosts && blogPosts.length > 0 && all_users ? (
+  blogPosts.map((post, index) => {
+    const currentUser = all_users.filter((user) => user.id === post.user_id)[0];
+    console.log(post.image);
+
+    return(
+      <div key={post.id} className="display">
+        <h1>{currentUser.name}</h1>
+        <p>{post.description}</p>
+        <img src={`http://localhost:3000/${post.image}`} alt={post.image} />
+      </div>
+    )
+  })
+) : (
+  <h1>Loading please wait...</h1>
+)}
+
+           
+       
+       
     </div>
   );
 }

@@ -37,11 +37,16 @@
     border-radius: 5px;
   }
 
-.sbutton:hover {
+  .sbutton:hover{
+    background-color: #ff4141;
+
+  }
+
+/* .sbutton:hover {
     position: absolute;
     top: 17%;
     left: 8%;
-  }
+  } */
 
 .sbutton a{
   text-decoration: none;

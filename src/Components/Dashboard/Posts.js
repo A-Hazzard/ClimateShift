@@ -136,6 +136,7 @@ export default function Posts(){
             headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
           })
           setLogged_in(true)
+          console.log(logged_in)
           const data = await response.json();
           setUser(data.user);
           // console.log(`Found user ${data.user.name}`)

@@ -8,7 +8,7 @@ export default function SideBar(){
             </div>
 
 
-            <top className="bottom">
+            <div className="bottom">
                 <p>This is a page that belongs to you and has lots of events. 
                 You can use it to keep up-to-date with your favorite groups and to find out 
                 what's going on in the Caribbean region.</p>
@@ -18,7 +18,7 @@ export default function SideBar(){
                     <button>Create a Post</button> <br />
                     <button>Create a Community</button>
                 </div>
-            </top>
+            </div>
         </div>
     )
 }

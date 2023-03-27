@@ -17,15 +17,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default function StoryBoard(){
     return(
         <main className="storyboard">
-            <GlobalNavBar/>
-
+            <GlobalNavBar/> 
+            <hr />
             <section>
                 <aside className='sideNavBar'>
                     <ul>
-                        <li><i class="fa-sharp fa-solid fa-angle-down"></i> Seasonal</li>
-                        <li><i class="fa-sharp fa-solid fa-angle-down"></i> Carnival</li>
-                        <li><i class="fa-sharp fa-solid fa-angle-down"></i> Eventful</li>
-                        <li><i class="fa-sharp fa-solid fa-angle-down"></i> Party</li>
+                        <li><i class="fa-sharp fa-solid fa-angle-down"></i> Seasonal</li><br />
+                        <li><i class="fa-sharp fa-solid fa-angle-down"></i> Carnival</li><br />
+                        <li><i class="fa-sharp fa-solid fa-angle-down"></i> Eventful</li><br />
+                        <li><i class="fa-sharp fa-solid fa-angle-down"></i> Party</li><br />
                         <li><i class="fa-sharp fa-solid fa-angle-down"></i> Historical Sites</li>
                     </ul>
                 </aside>
@@ -37,7 +37,7 @@ export default function StoryBoard(){
                         <p>Don't wait any longer to bring your event to life.
                             <br />
                          Start designing now and make it unforgettable!</p>
-                        <button><Link to="/storyboard/canva" style={{color: "white", textDecoration: "none"}}>Create an experience</Link></button>
+                        <button><Link to="/storyboard/canva" style={{color: "black", textDecoration: "none"}}>Create an experience</Link></button>
                     </div>
                     <div className="templates">
                         <h3>Choose a template</h3><br/>

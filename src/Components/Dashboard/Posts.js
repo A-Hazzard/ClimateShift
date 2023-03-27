@@ -75,7 +75,7 @@ export default function Posts(){
       formData.append('image', event.target.image.files[0]);
   
       try {
-        const response = await fetch('http://localhost:3003/blogs', {
+        const response = await fetch('http://localhost:3001/blogs', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -103,7 +103,7 @@ export default function Posts(){
             const token = localStorage.getItem('token')
     
             if(token){
-              const response = await fetch('http://localhost:3003/user',{
+              const response = await fetch('http://localhost:3001/user',{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
               })
@@ -120,7 +120,7 @@ export default function Posts(){
         (async function fetchAllUsers(){
           try{
     
-              const response = await fetch('http://localhost:3003/all_users',{
+              const response = await fetch('http://localhost:3001/all_users',{
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json'}
               })
@@ -135,7 +135,7 @@ export default function Posts(){
         
         const fetchPosts = async () => {
               try {
-                const response = await fetch("http://localhost:3003/blogposts-with-users");
+                const response = await fetch("http://localhost:3001/blogposts-with-users");
                 if (!response.ok) {
                   throw new Error("Something went wrong while fetching the data.");
                 }
@@ -151,7 +151,7 @@ export default function Posts(){
       }, []);
 
       function handlelogOut() {
-        fetch('http://localhost:3003/logout', {
+        fetch('http://localhost:3001/logout', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
@@ -294,8 +294,8 @@ export default function Posts(){
                                   <div className="post-header">
                                       <img src={Avatar} alt="user profile picture"/>
                                       <div className="post-info">
-                                          <h2>{currentUser.name}</h2>
-                                          <p>{post.created_at}</p>
+                                          {/* <h2>{currentUser.name}</h2> */}
+                                          {/* <p>{post.created_at}</p> */}
                                       </div>
                                   </div>
                                   <div className="post-content">

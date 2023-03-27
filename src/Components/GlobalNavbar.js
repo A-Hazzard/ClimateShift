@@ -56,6 +56,9 @@ export default function GlobalNavbar() {
     <div className="nav">
     <header className='home-header'>
                     <div className="navbar">
+                    <div className="logo">
+                        <img src="#" />
+                    </div>
                        
                        <ul className="nav">
                        <li className="item">
@@ -81,9 +84,7 @@ export default function GlobalNavbar() {
                        </ul>
                        
             
-                    <div className="logo">
-                        <img src="#" />
-                    </div>
+                    
                     </div>
                 </header>
                 <hr />

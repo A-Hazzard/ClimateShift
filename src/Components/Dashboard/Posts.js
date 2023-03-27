@@ -1,9 +1,14 @@
 import '../../css/dashboard/new.css'
 import Avatar from '../../imgs/avatar.jpg'
+import Avatar2 from '../../imgs/avatar2.jpg'
 import Carnival from '../../imgs/carnival.jpg'
+import GirlsNight from "../../imgs/girlsnight.jpg"
+import BakeandShark from "../../imgs/bakeandshark.jpg"
+import SideBar from './SIdeBar'
+
 import React, { useState, useEffect } from 'react';
-import $ from 'jquery'
 import {Link, useNavigate} from 'react-router-dom'
+import $ from 'jquery'
 
 
 $(document).ready(()=>{
@@ -294,8 +299,99 @@ export default function Posts(){
                 
                  
                 </div>
+
+                
           </div>
-               
+          <div id="parts-tab" className="tab-content">
+        <section className="post">
+            <div className="post-header">
+              <img src={Avatar2} alt="user profile picture"/>
+              <div className="post-info">
+                <h2>ricardoconstantine</h2>
+                <p>5 hours ago</p>
+              </div>
+            </div>
+            <div className="post-content">
+              <p>Machel with the gals! #likeyuhself"</p>
+              <img src={GirlsNight} alt="post image"/>
+            </div>
+            <div className="post-actions">
+                <a className="like-btn" href="#">
+                    <i className="fa fa-heart"></i> Like
+                </a>
+              <button><i className="fa fa-comment"></i> Comment</button>
+              <button><i className="fa fa-share"></i> Share</button>
+            </div>
+          </section>
+           </div>
+
+            {/* <!--Culinary--> */}
+            <div id="machines-tab" className="tab-content">
+                <section className="post">
+                    <div className="post-header">
+                      <img src={Avatar2} alt="user profile picture"/>
+                      <div className="post-info">
+                        <h2>ricardoconstantine</h2>
+                        <p>5 hours ago</p>
+                      </div>
+                    </div>
+                    <div className="post-content">
+                      <p>Richard's still have it boii...</p>
+                      <img src={BakeandShark} alt="post image"/>
+                    </div>
+                    <div className="post-actions">
+                        <a className="like-btn" href="#">
+                            <i className="fa fa-heart"></i> Like
+                        </a>
+                      <button><i className="fa fa-comment"></i> Comment</button>
+                      <button><i className="fa fa-share"></i> Share</button>
+                    </div>
+                  </section>
+                  <section className="post">
+                      <div className="post-header">
+                        <img src={Avatar2} alt="user profile picture"/>
+                        <div className="post-info">
+                          <h2>ricardoconstantine</h2>
+                          <p>5 hours ago</p>
+                        </div>
+                      </div>
+                      <div className="post-content">
+                        <p>Richard's still have it boii...</p>
+                        <img src={BakeandShark} alt="post image"/>
+                      </div>
+                      <div className="post-actions">
+                          <a className="like-btn" href="#">
+                              <i className="fa fa-heart"></i> Like
+                          </a>
+                        <button><i className="fa fa-comment"></i> Comment</button>
+                        <button><i className="fa fa-share"></i> Share</button>
+                      </div>
+                    </section>
+                    <section className="post">
+                      <div className="post-header">
+                        <img src={BakeandShark} alt="user profile picture"/>
+                        <div className="post-info">
+                          <h2>ricardoconstantine</h2>
+                          <p>5 hours ago</p>
+                        </div>
+                      </div>
+                      <div className="post-content">
+                        <p>Richard's still have it boii...</p>
+                        <img src={BakeandShark} alt="post image"/>
+                      </div>
+                      <div className="post-actions">
+                          <a className="like-btn" href="#">
+                              <i className="fa fa-heart"></i> Like
+                          </a>
+                        <button><i className="fa fa-comment"></i> Comment</button>
+                        <button><i className="fa fa-share"></i> Share</button>
+                      </div>
+                    </section>
+            </div>  
+
+            {/* Sidebar template imported from another file */}
+            <SideBar />
+
         </div>
  
     )

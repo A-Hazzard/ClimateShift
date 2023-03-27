@@ -10,6 +10,7 @@
   width: 100%;
   transition: 0.2s ease;
   box-shadow: 14px;
+  background-color: #ffffff;
 }
 .home-header .navbar .nav {
   margin: 0;

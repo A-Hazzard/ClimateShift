@@ -58,9 +58,11 @@ $(document).ready(()=>{
     // dropdownContent.removeClass('open');
     dropdownContent.fadeOut('fast')
   });
+
+  
 })
 
-export default function Community(){
+export default function Test(){
 
   const navigate = useNavigate()
 
@@ -70,13 +72,54 @@ export default function Community(){
   let [token, setToken] = useState(null)
   let [logged_in, setLogged_in] = useState(false)
   let [error, setError] = useState('')
-  
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
+ 
 
+  $('.like-button').each(async function() {
+    let likes = parseInt($(this).find('.like-count').text())
+    let liked = false
+  
+    $(this).on('click', async () => {
+      const [_, postId, userId] = $(this).attr('id').split('-')
+      
+      // Check if user has already liked this post
+      const response = await fetch(`https://localhost:3001/api/posts/${postId}/likes/${userId}`)
+      const data = await response.json()
+  
+      if (liked) {
+        // User already liked this post, so unlike it
+        likes -= 1
+        liked = false
+        $(this).find('.fa-heart').css('color', '#cccccc')
+  
+        // Send DELETE request to remove user's like from database
+        await fetch(`https://localhost:3001/api/posts/${postId}/likes/${userId}`, {
+          method: 'DELETE',
+        })
+      } else {
+        // User hasn't liked this post, so like it
+        likes += 1
+        liked = true
+        $(this).find('.fa-heart').css('color', 'blue')
+  
+        // Send POST request to add user's like to database
+        await fetch(`https://localhost:3001/api/posts/${postId}/likes/${userId}`, {
+          method: 'POST',
+        })
+      }
+  
+      // Update the like count in the button
+      $(this).find('.like-count').text(likes)
+    })
+  })
+  
+  
+  
     
-  const handleSubmit = async (event) => {
+  const handleSubmit = async event => {
     // event.preventDefault();
 
     const formData = new FormData();
@@ -106,6 +149,8 @@ export default function Community(){
     }
   };
 
+ 
+
   function handlelogOut() {
     fetch('http://localhost:3001/logout', {
       method: 'POST',
@@ -123,6 +168,8 @@ export default function Community(){
     })
     .catch(error => console.log(error));
   };
+
+
 
   useEffect(() => {
     
@@ -283,7 +330,7 @@ export default function Community(){
                                         <div className="post-actions">
                                             <button id={`like-button-${post.id}`} className="like-button">
                                                 <i className="fa fa-heart"></i>
-                                                <span className="like-count">2000</span>
+                                                <span className="like-count" >2000</span>
                                             </button>
                                             <button><i className="fa fa-comment"></i> Comment</button>
                                             <button><i className="fa fa-share"></i> Share</button>

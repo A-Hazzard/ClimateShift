@@ -327,6 +327,39 @@ app.get("/blogposts-with-users", (req, res) => {
   });
 });
 
+app.post('/blogs/:id/like', (req, res) => {
+  const { id } = req.params;
+
+  const query = `UPDATE blogs SET likes = likes + 1 WHERE id = ${id}`;
+
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('Error executing query: ', err);
+      res.status(500).send('Error executing query');
+      return;
+    }
+
+    res.sendStatus(200);
+  });
+});
+
+app.post('/blogs/:id/unlike', (req, res) => {
+  const { id } = req.params;
+
+  const query = `UPDATE blogs SET likes = likes - 1 WHERE id = ${id}`;
+
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('Error executing query: ', err);
+      res.status(500).send('Error executing query');
+      return;
+    }
+
+    res.sendStatus(200);
+  });
+});
+
+
 
 
 

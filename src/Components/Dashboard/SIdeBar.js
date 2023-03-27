@@ -2,6 +2,23 @@ import '../../css/dashboard/sidebar.css'
 
 export default function SideBar(){
     return(
-        <h1>SIDEBAR</h1>
+        <div className="sidebar">
+            <div className="top">
+             <h4>Home</h4>
+            </div>
+
+
+            <top className="bottom">
+                <p>This is a page that belongs to you and has lots of events. 
+                You can use it to keep up-to-date with your favorite groups and to find out 
+                what's going on in the Caribbean region.</p>
+                <hr />
+
+                <div className="buttons">
+                    <button>Create a Post</button> <br />
+                    <button>Create a Community</button>
+                </div>
+            </top>
+        </div>
     )
 }

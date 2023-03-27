@@ -1,7 +1,7 @@
 import Home from './Components/Home/Home'
 import StoryBoard from './Components/StoryBoard/StoryBoard'
 import Community from './Components/Dashboard/Community'
-import Testblog from './Components/Testblog'
+import Test from './Components/Dashboard/Test'
 import Canva from './Components/StoryBoard/Canva'
 import Login from './Components/Members/Login';
 import Signup from './Components/Members/Signup';
@@ -18,7 +18,7 @@ function App() {
             <Route path="/" element={<Home/>} />
             <Route path="/storyboard" element={<StoryBoard/>} />
             <Route path="/storyboard/canva" element={<Canva/>} />
-            <Route path="/storyboard/test" element={<Testblog/>} />
+            <Route path="/test" element={<Test/>} />
             <Route path="/community" element={<Community/>} />
             <Route path="/members/signup" element={<Signup/>} />
             <Route path="/members/login" element={<Login/>} />

@@ -1,4 +1,4 @@
-import '../../css/storyboard/storyboard.css'
+import './storyboard.css'
 import Img1 from "../../imgs/1.png"
 import Img2 from "../../imgs/2.png"
 import Img3 from "../../imgs/3.png"

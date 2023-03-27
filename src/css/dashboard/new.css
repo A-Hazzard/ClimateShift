@@ -214,8 +214,8 @@
 }
 .tabs {
   display: inline-block;
-  margin-bottom: 20px;
-  padding: 20px
+  margin-bottom: 0;
+  padding:0;
 }
 
 .tab-btn {
@@ -247,7 +247,7 @@
 }
 
 .tab-content.active {
-  display: flex;
+  display:inline;
   justify-content: space-between;
     max-width: 100%;
 }

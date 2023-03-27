@@ -7,7 +7,6 @@ export default function SideBar(){
              <h4>Home</h4>
             </div>
 
-
             <div className="bottom">
                 <p>This is a page that belongs to you and has lots of events. 
                 You can use it to keep up-to-date with your favorite groups and to find out 
@@ -15,8 +14,8 @@ export default function SideBar(){
                 <hr />
 
                 <div className="buttons">
-                    <button>Create a Post</button> <br />
-                    <button>Create a Community</button>
+                    <button>New Post</button> <br/>
+                    <button>New Community</button>
                 </div>
             </div>
         </div>

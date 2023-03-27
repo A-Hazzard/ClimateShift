@@ -57,6 +57,8 @@ $(document).ready(()=>{
 
 export default function Posts(){
 
+  const navigate = useNavigate()
+
   let [blogPosts, setBlogPosts] = useState([]);
   let [user, setUser] = useState(null)
   let [all_users, setAllUsers] = useState([])
@@ -97,6 +99,24 @@ export default function Posts(){
     } catch (error) {
       console.error("Catching error:\n" + error);
     }
+  };
+
+  function handlelogOut() {
+    fetch('http://localhost:3001/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+    })
+    .then(response => {
+      if (response.ok) {
+        localStorage.clear();
+        // window.location.href = '/';
+        navigate('/')
+      } else {
+        response.json().then(error => console.log(error));
+      }
+    })
+    .catch(error => console.log(error));
   };
 
   useEffect(() => {
@@ -162,17 +182,25 @@ export default function Posts(){
                     <button type="submit" className="searchbtn">Search</button>
                     </div>
                     <ul className="nav-links">
-                        <li><a href="#"><i className="fa fa-home"></i></a></li>
-                        <Link to="/" style={{"fontSize": ".8rem"}}>
-                          <span className="fa-stack fa-lg pull-left">
-                            <i className="fa-solid fa-right-from-bracket" style={{"marginLeft" : "50%"}}></i>
-                          </span>
-                          {logged_in ? 'Logout' : 'Login'}
-                        </Link>
-                        <li><a href="#"><i className="fa fa-user"></i></a></li>
-                        <li><a href="#"><i className="fa fa-bell"></i></a></li>
-                        <li><a href="#"><i className="fa fa-envelope"></i></a></li>
+                      <li><Link to="/" style={{"marginLeft": "85%"}}><i className="fa fa-home"></i></Link></li>
+                      <li>
+                     
+                      </li>
+                      <li><a href="#"><i className="fa fa-user"></i></a></li>
+                      <li><a href="#"><i className="fa fa-bell"></i></a></li>
+                      <li><a href="#"><i className="fa fa-envelope"></i></a></li>
+                      {logged_in ? (
+                          <Link to="/" onClick={handlelogOut} style={{ fontSize: ".8rem" }}>
+                            <span className="fa-stack fa-lg pull-left">
+                              <i className="fa-solid fa-right-from-bracket" style={{ marginLeft: "50%" }}></i>
+                            </span>
+                            Logout
+                          </Link>
+                        ) : (
+                          <Link to="/members/login" style={{ fontSize: ".8rem", "marginTop": "2%" }}>Login/Signup</Link>
+                        )}
                     </ul>
+
                 </nav>
 
           <div className="center">
@@ -262,6 +290,8 @@ export default function Posts(){
                                 <h1>Loading please wait...</h1>
                             </section>
                         )} 
+
+                
                  
                 </div>
           </div>

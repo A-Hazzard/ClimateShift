@@ -123,6 +123,83 @@ body {
 ul{
 	list-style: none;
 }
+
+li ul {
+  display: none; /* hide the dropdown by default */
+  position: absolute; /* position the dropdown absolutely */
+  background-color: white; /* set the background color */
+  padding: 10px; /* add some padding */
+}
+
+li:hover ul {
+  display: block; /* show the dropdown when the parent li is hovered over */
+}
+
+
+.add-template-button {
+  background-color: #ffffff;
+  border: 1px solid #33aaff;
+  border-radius: 200px;
+  color: #33e7ff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.add-template-button:hover {
+  background-color: #ff3333;
+  color: #ffffff;
+  border: 1px solid #ff3333;
+}
+
+.add-template-button i {
+  margin-left: 5px;
+}
+
+.add-template-button span {
+  margin-right: 5px;
+}
+
+.add-template-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.4);
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.use-template-button {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 10px);
+  transform: translate(-50%, -50%);
+  background-color: #33ebff;
+  border: none;
+  border-radius: 200px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.use-template-button:hover {
+  background-color: #ff74d3;
+  color: #ffff;
+}
+
+.image-container:hover .use-template-button {
+  opacity: 1;
+}
 .footer{
 	background-color: #24262b;
     padding: 70px 0;
@@ -237,6 +314,11 @@ ul{
     border-radius: 5px;
     cursor: pointer;
 }
+.banner button:hover{
+  background-color: lightblue;
+  color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* add a shadow effect */ 
+}
 
 .sideNavBar {
     position: absolute;
@@ -259,17 +341,14 @@ ul{
 .template-images img {
     cursor: pointer;
     border-radius: 12px;
+    margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 .template-images img:hover {
-    opactiy: 0.5;
+    opacity:0.7;
 }
 
 .img {
     border-radius: 12px;
-    padding-right: 20px;
 }
-
-
-
-

@@ -1,16 +1,17 @@
 .storyboard section {
   display: flex;
   flex-direction: row;
+  font-family:Arial, Helvetica, sans-serif;
 }
 .storyboard section .sideNavBar {
   top: 0;
   left: 0;
-  width: 200px;
+  width: 300px;
   height: 100vh;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   z-index: -1;
   padding-top: 5%;
-  text-align: center;
+  text-align: left;
 }
 .storyboard section .sideNavBar li {
   margin-bottom: 8%;
@@ -24,42 +25,68 @@
 .storyboard section .main-container-storyboard .banner {
   width: 100%;
   margin: 0 auto;
-  border-radius: 2rem;
-  background-image: linear-gradient(to right, #FF5252, #FFA726, #FFEB3B, #4CAF50, #7C4DFF);
+  border-radius: 10px;
+  padding: 50px;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+  position: relative;
+  top: -4%;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 .storyboard section .main-container-storyboard .banner h2 {
   color: #fff;
-  font-size: 48px;
-  margin-left: 2%;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  font-size: 2em;
+  position: relative;
+  top: -10%;
+  text-align: center;
+  font-weight: bold;
 }
 .storyboard section .main-container-storyboard .banner p {
   color: #fff;
-  font-size: 24px;
-  margin-left: 2%;
+  font-size: 1.2em;
   margin-top: 20px;
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  font-weight: lighter;
+  text-align:center;
+  position: relative;
+  top: 0%;
 }
 .storyboard section .main-container-storyboard .banner button {
-  background-color: #DC7633;
+  background-color: #F9FF2D;
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 0.5rem;
-  font-size: 18px;
+  font-size: 1em;
   margin-top: 40px;
   cursor: pointer;
   outline: none;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   margin: 0 0 2% 2%;
+  position: relative;
+  left: 38%;
 }
 .storyboard section .main-container-storyboard .banner button:hover {
-  background-color: #CF6D29;
+  background-color: lightblue;
+  color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* add a shadow effect */ 
+  transition: 1s;
 }
 .storyboard section .main-container-storyboard .templates {
   margin-top: 3%;
   padding: 3% 5%;
   background-color: #f2f2f2;
+  border-radius: 12px;
 }
 .storyboard section .main-container-storyboard .templates h3 {
   font-size: 24px;
@@ -73,7 +100,7 @@
   gap: 2.5%;
 }
 .storyboard section .main-container-storyboard .templates .template-images img {
-  width: 15%;
+  width: 20%;
   height: 20rem;
   aspect-ratio: 3/2;
   margin-bottom: 3%;
@@ -86,3 +113,47 @@
   opacity: 80%;
   transform: scale(1.1);
 }/*# sourceMappingURL=storyboard.css.map */
+
+.pagination {
+  
+  margin: 0 auto;
+}
+
+.pagination ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.pagination ul li {
+  margin-left: 20%;
+}
+.pagination__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #eee;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+}
+
+.pagination__item:hover,
+.pagination__item.active {
+  background-color: #0077cc;
+  color: #fff;
+}
+
+.pagination__item:first-child {
+  margin-left: 0;
+}
+
+.pagination__item:last-child {
+  margin-right: 0;
+}

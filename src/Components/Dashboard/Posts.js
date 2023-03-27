@@ -4,51 +4,56 @@ import Carnival from '../../imgs/carnival.jpg'
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery'
 import {Link, useNavigate} from 'react-router-dom'
-const likeBtn = $('.like-btn');
-const tabBtns = $('.tab-btn');
-const dropdownHeader = $('.dropdown-header');
-const dropdownContent = $('.dropdown-content');
-dropdownContent.css('display', 'hidden')
-const downArrow = $('.dropdown-header .fa-caret-down');
-const upArrow = $('.dropdown-content .fa-caret-up');
 
-tabBtns.each(function() {
-  $(this).on('click', function() {
-    // Get the data-tab attribute value of the clicked button
-    const tab = $(this).attr('data-tab');
 
-    // Get all the tab content elements
-    const tabContents = $('.tab-content');
+$(document).ready(()=>{
+  const likeBtn = $('.like-btn');
+  const tabBtns = $('.tab-btn');
+  const dropdownHeader = $('.dropdown-header');
+  const dropdownContent = $('.dropdown-content');
+  dropdownContent.css('display', 'hidden')
+  const downArrow = $('.dropdown-header .fa-caret-down');
+  const upArrow = $('.dropdown-content .fa-caret-up');
 
-    // Deactivate all tab buttons and hide all tab contents
-    tabBtns.removeClass('active');
-    tabContents.removeClass('active');
+  tabBtns.each(function() {
+    $(this).on('click', function() {
+      // Get the data-tab attribute value of the clicked button
+      const tab = $(this).attr('data-tab');
 
-    // Activate the clicked tab button and show the corresponding tab content
-    $(this).addClass('active');
-    $('#' + tab + '-tab').addClass('active');
+      // Get all the tab content elements
+      const tabContents = $('.tab-content');
+
+      // Deactivate all tab buttons and hide all tab contents
+      tabBtns.removeClass('active');
+      tabContents.removeClass('active');
+
+      // Activate the clicked tab button and show the corresponding tab content
+      $(this).addClass('active');
+      $('#' + tab + '-tab').addClass('active');
+    });
   });
-});
 
-$(window).on('scroll', function() {
-  const navbar = $('.navbar');
-  navbar.toggleClass('scrolled', $(this).scrollTop() > 0);
-});
 
-dropdownHeader.on('click', function() {
-  // dropdownContent.toggleClass('open');
-  dropdownContent.fadeIn('fast')
-});
-
-downArrow.on('click', function() {
-  dropdownContent.fadeIn('fast')
-  // dropdownContent.toggleClass('open');
-});
-
-upArrow.on('click', function() {
-  // dropdownContent.removeClass('open');
-  dropdownContent.fadeOut('fast')
-});
+  $(window).on('scroll', function() {
+    const navbar = $('.navbar');
+    navbar.toggleClass('scrolled', $(this).scrollTop() > 0);
+  });
+  
+  dropdownHeader.on('click', function() {
+    // dropdownContent.toggleClass('open');
+    dropdownContent.fadeIn('fast')
+  });
+  
+  downArrow.on('click', function() {
+    dropdownContent.fadeIn('fast')
+    // dropdownContent.toggleClass('open');
+  });
+  
+  upArrow.on('click', function() {
+    // dropdownContent.removeClass('open');
+    dropdownContent.fadeOut('fast')
+  });
+})
 
 export default function Posts(){
     

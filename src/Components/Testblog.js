@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import defaultImg from '../imgs/carnival.jpg'
-import img from '../Express Server/Images/1679878798377-logo.png'
+
 export default function Testblog() {
 
   let [blogPosts, setBlogPosts] = useState([]);
@@ -16,7 +16,7 @@ export default function Testblog() {
 
  
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     const formData = new FormData();
     formData.append('user_id', user.id);
@@ -144,12 +144,13 @@ export default function Testblog() {
   blogPosts.map((post, index) => {
     const currentUser = all_users.filter((user) => user.id === post.user_id)[0];
     console.log(post.image);
-
+    console.log(currentUser)
+    
     return(
       <div key={post.id} className="display">
         <h1>{currentUser.name}</h1>
         <p>{post.description}</p>
-        <img src={`http://localhost:3000/${post.image}`} alt={post.image} />
+        <img src={`http://localhost:3003/Images/${post.image}`} alt={post.image} />
       </div>
     )
   })

@@ -20,7 +20,7 @@ const pool = mysql.createPool({
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, 'src/Express Server/Images');
+    cb(null, './public/images');
   },
   filename: function(req, file, cb) {
     cb(null, Date.now() + '-' + file.originalname);
@@ -308,14 +308,17 @@ app.get("/blogposts-with-users", (req, res) => {
         return res.status(500).json({ error: "Internal server error" });
       }
 
-      const blogposts = results.map((result) => ({
-        id: result.id,
-        user_id: result.user_id,
-        title: result.title,
-        image: result.image,
-        name: result.username,
-        description: result.description,
-      }));
+      const blogposts = results.map((result) => {
+        const decodedImage = Buffer.from(result.image, 'base64').toString('utf-8');
+        return {
+          id: result.id,
+          user_id: result.user_id,
+          title: result.title,
+          image: decodedImage,
+          name: result.username,
+          description: result.description,
+        }
+      });
 
       console.log(`Blog post names: ${blogposts}`);
 

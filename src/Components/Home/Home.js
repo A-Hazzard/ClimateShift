@@ -16,7 +16,7 @@ export default function Home(){
           }
         });
       });
-
+      
     return(
         <main className="home">
             <GlobalNavBar/>
@@ -74,7 +74,7 @@ export default function Home(){
 
                 <div className="info">
                         <div className="title">
-                            <h1 className= "storytitle">LEARN ABOUT STORYBOARDS</h1>
+                            <h1 className= "storytitle">LEARN ABOUT STORYBOARDS</h1><br></br>
                             <h1> What is a <span style = {{color: "#069211"}}> Storyboard?</span></h1>
                         </div>
                         <div className="body">

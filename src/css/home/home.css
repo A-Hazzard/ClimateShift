@@ -28,9 +28,9 @@
 
   .sbutton{
     position: absolute;
-    top: 17%;
+    top: 16.3%;
     left: 8%;
-    padding: 18px;
+    padding: 12px;
     width: 15%;
     background-color: #E40606;
     border: none;
@@ -75,13 +75,13 @@
   color:rgb(0, 0, 0);
   font-weight: lighter;
   position: absolute;
-  top: 29.2%;
+  top: 29.8%;
   left: 10%
 }
 
 .left .fa-circle-check {
   position:absolute;
-  top: 30%;
+  top: 29.8%;
   left: 8%;
   font-size: 1.4em;
   color:#069211;
@@ -233,7 +233,7 @@ font-size: 1.2em;
   position: absolute;
   top: 50%;
   left: 8%;
-  padding: 18px;
+  padding: 12px;
   width: 15%;
   background-color: #E40606;
   border: none;

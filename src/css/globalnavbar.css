@@ -1,8 +1,10 @@
 .home-header {
   position: absolute;
   top: 0;
+  left: 0%;
   width: 100%;
   z-index: 1001;
+  
 }
 .home-header .navbar {
   position: relative;
@@ -10,6 +12,7 @@
   width: 100%;
   transition: 0.2s ease;
   box-shadow: 14px;
+  background-color: #ffffff;
 }
 .home-header .navbar .nav {
   margin: 0;
@@ -42,10 +45,6 @@
   border-radius: 4px;
   outline: 0;
   transition: 0.5s ease;
-}
-.home-header .navbar .nav .item .sign-up:hover {
-  border-color: #E40606;
-  color: #E40606;
 }
 .home-header .navbar .nav .item .login {
   display: inline-block;

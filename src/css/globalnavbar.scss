@@ -3,6 +3,7 @@
   top: 0;
   width: 100%;
   z-index: 1001;
+  
 
   .navbar {
     position: relative;
@@ -11,12 +12,15 @@
     transition: 0.2s ease;
     box-shadow: 14px;
 
+
     .nav {
       margin: 0;
       padding: 0;
       float: right;
       margin-right: 5%;
       cursor: pointer;
+     
+  
 
       .item {
         list-style: none;
@@ -43,11 +47,6 @@
           border-radius: 4px;
           outline: 0;
           transition: 0.5s ease;
-
-          &:hover {
-            border-color: #E40606;
-            color:#E40606;
-          }
         }
 
         .login {

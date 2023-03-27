@@ -71,15 +71,17 @@ export default function GlobalNavbar() {
                          </li>
                       ):null}
 
+                      {window.location.pathname !== '/storyboard' ? 
+                      (
                         <li className="item">
                            <Link to="/storyboard">StoryBoard</Link>
                          </li>
-
+                         ):null}
                      
                        
 
                          <li className="item">
-                           <Link to="/posts">Community</Link>
+                           <Link to="/community">Community</Link>
                          </li>
                          </ul>
                       ): (

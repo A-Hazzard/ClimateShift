@@ -6,7 +6,7 @@ import GirlsNight from "../../imgs/girlsnight.jpg"
 import BakeandShark from "../../imgs/bakeandshark.jpg"
 import SideBar from './SIdeBar'
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {Link, useNavigate} from 'react-router-dom'
 import $ from 'jquery'
 
@@ -60,7 +60,7 @@ $(document).ready(()=>{
   });
 })
 
-export default function Posts(){
+export default function Community(){
 
   const navigate = useNavigate()
 
@@ -247,12 +247,12 @@ export default function Posts(){
                     </form>
 
                     </div>
-                    <br/><br/>
+                    
                     </div>
 
                 ) : null}
                 {/* End of dropdown */}
-
+                <br></br>
                 {/* TABS */}
                 <div className="tabbuttons">
                     <div className="tabs">

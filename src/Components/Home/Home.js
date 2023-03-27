@@ -3,6 +3,8 @@ import bluesplash from '../../imgs/bluesplash.png'
 import maskot from '../../imgs/maskot.png'
 import template from '../../imgs/template.jpg'
 import $ from 'jquery'
+import { useState, useEffect } from 'react';
+import {Link, useNavigate} from 'react-router-dom'
 
 import GlobalNavBar from '../GlobalNavbar'
 
@@ -28,7 +30,7 @@ export default function Home(){
                         <h1>Free Storyboard Creator for<br/> Cultural Experiences</h1>
                     </div>
                     <div>
-                        <button className= "sbutton"><a href = "#">Create Your Storyboard</a></button>
+                        <button className= "sbutton"><Link to="/storyboard">Create Your Storyboard</Link></button>
                         <h2 className= "smalltext">It's free and easy to use!</h2>
                     </div>
                     <div className="pictureright">

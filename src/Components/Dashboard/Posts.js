@@ -82,7 +82,7 @@ export default function Posts(){
 
     console.log(`Submitting, ID: ${user.id} \nTitle: ${title} \nDescription: ${description} \nImage: ${event.target.image.files[0]}`)
     try {
-      const response = await fetch('http://localhost:3003/testblogs', {
+      const response = await fetch('http://localhost:3001/testblogs', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -126,7 +126,7 @@ export default function Posts(){
         const token = localStorage.getItem('token')
 
         if(token){
-          const response = await fetch('http://localhost:3003/user',{
+          const response = await fetch('http://localhost:3001/user',{
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
           })
@@ -143,7 +143,7 @@ export default function Posts(){
     (async function fetchAllUsers(){
       try{
 
-          const response = await fetch('http://localhost:3003/all_users',{
+          const response = await fetch('http://localhost:3001/all_users',{
             method: 'GET',
             headers: { 'Content-Type': 'application/json'}
           })
@@ -157,7 +157,7 @@ export default function Posts(){
     
     (async function fetchPosts() {
       try {
-        const response = await fetch("http://localhost:3003/blogposts-with-users");
+        const response = await fetch("http://localhost:3001/blogposts-with-users");
         if (!response.ok) {
           throw new Error("Something went wrong while fetching the data.");
         }
@@ -272,7 +272,7 @@ export default function Posts(){
                                         </div>
                                         <div className="post-content">
                                             <p>{post.description}</p>
-                                            <img className='blogImage' src={`http://localhost:3003/Images/${post.image}`} alt={post.image} />
+                                            <img className='blogImage' src={`http://localhost:3001/Images/${post.image}`} alt={post.image} />
                                         </div>
                                         <div className="post-actions">
                                             <button id={`like-button-${post.id}`} className="like-button">

@@ -8,7 +8,7 @@ const multer = require('multer');
 
 
 const app = express()
-const port = 3003
+const port = 3001
 
 const pool = mysql.createPool({
   host: 'sql10.freesqldatabase.com',

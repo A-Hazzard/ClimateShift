@@ -16,7 +16,7 @@ $(document).ready(()=>{
   const tabBtns = $('.tab-btn');
   const dropdownHeader = $('.dropdown-header');
   const dropdownContent = $('.dropdown-content');
-  dropdownContent.css('display', 'hidden')
+  dropdownContent.css('display', 'none')
   const downArrow = $('.dropdown-header .fa-caret-down');
   const upArrow = $('.dropdown-content .fa-caret-up');
 
